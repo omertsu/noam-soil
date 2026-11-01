@@ -1,663 +1,1591 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he" dir="rtl" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>דרכי נועם | סקר היסטורי וחקירת קרקע כתנאי למתן היתר בנייה</title>
-<meta name="description" content="מחפשים יועץ קרקע מזוהמת? חברת דרכי נועם מבצעת הליך חקירה מקצועי ומקיף הכולל הגשת סקר, בדיקת קרקע וגז קרקע מול המשרד להגנת הסביבה עד לקבלת אישור NFA הנדרש כתנאי למתן היתר בנייה.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Rubik:wght@600;700;800;900&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --ink:#161B22;
-    --ink-2:#1C2E33;
-    --mid:#5B6B70;
-    --line:rgba(16,27,30,.12);
-    --bg:#F7F7F5;
-    --panel:#FFFFFF;
-    --accent:#0E7C6B;
-    --accent-dark:#0A5F52;
-    --accent-soft:#E3F2EE;
-    --amber:#E08A2C;
-    --amber-dark:#B96E1C;
-    --amber-soft:#FCEEDC;
-    --alert:#C25A2B;
-    --sand:#E8E2D4;
-    --max:1140px;
-  }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    margin:0;background:var(--bg);color:var(--ink);
-    font-family:'Heebo',sans-serif;line-height:1.7;font-size:17px;
-    -webkit-font-smoothing:antialiased;text-align:center;
-  }
-  h1,h2,h3,h4{margin:0;font-family:'Rubik',sans-serif;font-weight:700;line-height:1.25}
-  p{margin:0}
-  a{color:inherit}
-  img,svg{display:block;max-width:100%}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
-  :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-
-  /* ================= TOP BAR & HEADER ================= */
-  header.site{
-    position:sticky;top:0;z-index:50;background:rgba(251,250,247,.94);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;
-    max-width:var(--max);margin:0 auto;padding:14px 24px}
-  .brand{display:flex;align-items:center;gap:11px;font-family:'Rubik',sans-serif;
-    font-weight:700;font-size:1.22rem;letter-spacing:-.01em}
-  .brand .mark{width:34px;height:34px;flex:none}
-  .nav-links{display:flex;align-items:center;gap:26px}
-  .nav-links a{font-size:.96rem;font-weight:600;text-decoration:none;color:var(--mid);
-    transition:color .15s ease}
-  .nav-links a:hover{color:var(--accent)}
-  .nav-right{display:flex;align-items:center;gap:18px}
-  @media (max-width:980px){ .nav-links{display:none} }
-
-  .btn{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    border:none;border-radius:6px;cursor:pointer;font-family:'Heebo',sans-serif;
-    font-weight:700;text-decoration:none;transition:background .16s ease,transform .1s ease;
-  }
-  .btn-main{background:var(--accent);color:#fff;padding:13px 26px;font-size:1rem}
-  .btn-main:hover{background:var(--accent-dark)}
-  .btn-main:active{transform:translateY(1px)}
-  .btn-lg{padding:17px 34px;font-size:1.08rem}
-
-  /* ================= HERO ================= */
-  .hero{position:relative;overflow:hidden;background:
-      radial-gradient(1100px 520px at 88% -8%, #EAF3F1 0%, rgba(234,243,241,0) 62%),
-      var(--bg);
-    padding:64px 0 0}
-  .hero-grid{display:block;max-width:850px;margin:0 auto;text-align:center}
-  .hero h1{font-size:clamp(1.6rem,2.8vw,2.4rem);letter-spacing:-.01em;color:var(--ink)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אקו-קרקע | ייעוץ סביבתי וסקרי קרקע להיתרי בנייה וטופס 4</title>
+  <meta name="description" content="סקר קרקע מהיר ומדויק להיתר בנייה וטופס 4. מעטפת הנדסית מלאה של סקרים היסטוריים, דיגום קרקע וגז קרקע מול המשרד להגנת הסביבה והוועדות המקומיות. הצעת מחיר תוך 24 שעות.">
   
-  .hero-badges{
-    display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin:24px 0;
-  }
-  .hero-badge{
-    display:inline-flex;align-items:center;gap:8px;background:var(--accent-soft);
-    color:var(--accent-dark);font-weight:700;font-size:.95rem;padding:8px 18px;border-radius:100px;
-    border:1px solid rgba(14,124,107,.2);
-  }
-  .hero-badge svg{width:16px;height:16px;flex:none}
-
-  .hero .lede{
-    margin:20px auto 0;font-size:1.02rem;color:var(--mid);line-height:1.75;
-    background:rgba(255,255,255,0.7);padding:22px 26px;border-radius:10px;
-    border:1px solid var(--line);text-align:center;
-  }
-  .hero-actions{margin-top:30px;display:flex;gap:13px;flex-wrap:wrap;justify-content:center}
-
-  /* ================= SECTIONS ================= */
-  section{padding:84px 0}
-  .sec-head{max-width:none;margin:0 auto 46px;text-align:center}
-  .sec-head h2{font-size:clamp(1.4rem,2.4vw,2rem);letter-spacing:-.01em}
-  .alt{background:var(--panel);border-block:1px solid var(--line)}
-
-  /* trigger cards */
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-  .card{
-    background:var(--panel);border:1px solid var(--line);border-radius:10px;
-    padding:26px 22px;position:relative;text-align:right;
-    display:flex;gap:16px;align-items:flex-start;
-  }
-  .alt .card{background:var(--bg)}
-  .card .ic{width:42px;height:42px;border-radius:9px;background:var(--accent-soft);
-    display:grid;place-items:center;flex:none}
-  .card .ic svg{width:22px;height:22px}
-  .card h3{font-family:'Heebo',sans-serif;font-weight:700;font-size:1.1rem}
-  .card p{margin-top:9px;color:var(--mid);font-size:.98rem}
-  .card > div:last-child{flex:1}
-
-  /* about */
-  .about{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;text-align:right}
-  .portrait{
-    border-radius:12px;
-    border:1px solid var(--line);
-    overflow:hidden;
-    box-shadow:0 12px 32px -12px rgba(16,27,30,.25);
-    background:#fff;
-  }
-  .portrait img{
-    width:100%;
-    height:auto;
-    aspect-ratio:4/3;
-    object-fit:cover;
-    display:block;
-  }
-  .about h2{font-size:clamp(1.7rem,2.8vw,2.2rem)}
-  .about p{margin-top:16px;color:var(--mid)}
-
-  /* sources layout */
-  .prose{max-width:72ch;margin:0 auto;text-align:center}
-  .src-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
-  .src-grid .prose{max-width:none;margin:0;text-align:center}
-  .src-fig{margin:0;text-align:center}
-  .src-fig svg{width:100%;height:auto;max-width:520px;margin:0 auto;border-radius:10px;border:1px solid var(--line);box-shadow:0 10px 30px -15px rgba(16,27,30,.3)}
-  .src-fig figcaption{margin-top:10px;font-size:0.9rem;color:var(--mid);font-weight:500}
-  .prose p{color:var(--mid);font-size:1.02rem;margin-bottom:16px}
-
-  /* ---- flowchart ---- */
-  .chart{
-    --cl:rgba(14,124,107,.55);
-    max-width:760px;margin:0 auto;display:flex;flex-direction:column;align-items:stretch;
-  }
-  .chart-step{
-    background:var(--accent-soft);border:1.5px solid rgba(14,124,107,.5);border-radius:8px;
-    padding:16px 22px;text-align:center;font-weight:700;font-size:.99rem;color:var(--ink);
-  }
-  .chart-note{display:block;font-weight:400;font-size:.82rem;color:var(--mid);margin-top:5px}
-  .chart-connector{width:2px;height:26px;background:var(--cl);margin:0 auto}
-  .chart-split{
-    --g:18px;position:relative;padding-top:40px;
-    display:grid;grid-template-columns:1fr 1fr;gap:var(--g);
-  }
-  .chart-split.sub{--g:12px}
-  .chart-split::before{
-    content:"";position:absolute;top:0;left:calc(50% - 1px);width:2px;height:26px;background:var(--cl);
-  }
-  .chart-split::after{
-    content:"";position:absolute;top:26px;height:14px;box-sizing:border-box;
-    left:calc(25% - var(--g) / 4 - 1px);right:calc(25% - var(--g) / 4 - 1px);
-    border:2px solid var(--cl);border-bottom:none;
-  }
-  .chart-branch{display:flex;flex-direction:column}
-  .chart-outcome-label{
-    border:1.5px solid rgba(14,124,107,.5);border-radius:8px 8px 0 0;padding:12px 14px;
-    text-align:center;font-weight:700;font-size:.97rem;color:var(--ink);background:var(--accent-soft);
-  }
-  .chart-outcome-label.good{background:#D6ECDD;border-color:#7FB893}
-  .chart-outcome-label.bad{background:#F7DCCD;border-color:#D99C7C}
-  .chart-result{
-    background:var(--accent-soft);border:1.5px solid rgba(14,124,107,.5);border-top:none;
-    border-radius:0 0 8px 8px;padding:14px 16px;font-size:.9rem;color:var(--ink-2);flex:1;text-align:center;
-  }
-
-  /* ================= מידע נוסף ================= */
-  .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;text-align:right;max-width:1050px;margin:0 auto}
-  .info-box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:30px;box-shadow:0 10px 30px -15px rgba(16,27,30,.15)}
-  .info-box h3{font-size:1.2rem;margin-bottom:16px;color:var(--accent-dark);display:flex;align-items:center;gap:10px}
-  .info-box ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-  .info-box li{color:var(--mid);font-size:.97rem;line-height:1.6}
-  .info-box li strong{color:var(--ink)}
-  .info-box a{color:var(--accent-dark);font-weight:600;text-decoration:underline;transition:color .15s ease}
-  .info-box a:hover{color:var(--accent)}
-  .info-full{grid-column:span 2}
-
-  /* form */
-  .formwrap{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:start}
-  .formside{text-align:right}
-  .formside h2{font-size:clamp(1.7rem,2.8vw,2.2rem)}
-  .formside p{margin-top:14px;color:var(--mid)}
-  .assure{margin-top:26px;display:grid;gap:14px}
-  .assure div{display:flex;gap:11px;align-items:center;justify-content:flex-start;color:var(--mid);font-size:.97rem}
-  .assure svg{width:19px;height:19px;flex:none}
-  form.lead{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:32px;text-align:right;box-shadow:0 16px 44px -30px rgba(16,27,30,.5)}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .field{margin-bottom:15px}
-  .field label{display:block;font-size:.91rem;font-weight:700;margin-bottom:6px}
-  .field input,.field textarea{
-    width:100%;padding:12px 14px;font-family:'Heebo',sans-serif;font-size:1rem;text-align:start;
-    border:1.5px solid var(--line);border-radius:7px;background:var(--bg);color:var(--ink)
-  }
-  .field input:focus,.field textarea:focus{border-color:var(--accent);background:#fff}
-  .field textarea{min-height:92px;resize:vertical}
-  .hint{font-size:.84rem;color:var(--mid);margin-top:11px;text-align:center}
-  #msg{display:none;margin-top:14px;padding:12px 14px;border-radius:7px;font-weight:600;font-size:.96rem}
-  #msg.show{display:block}
-
-  footer{background:var(--ink);color:#93A9A8;padding:44px 0;font-size:.92rem}
-  footer .wrap{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
-  footer a{color:#DCE6E5;text-decoration:none}
-
-  .float{position:fixed;bottom:22px;left:22px;z-index:60;display:flex;gap:10px}
-  .float a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px -8px rgba(0,0,0,.45);text-decoration:none}
-  .fw{background:#25D366}
-
-  @media (max-width:900px){
-    .hero-grid,.about,.formwrap,.src-grid,.info-grid{grid-template-columns:1fr}
-    .info-full{grid-column:span 1}
-    .cards,.split{grid-template-columns:1fr}
-    .flow{grid-template-columns:1fr 1fr;gap:28px 16px}
-    .band{padding:32px 26px}
-    section{padding:62px 0}
-  }
-  @media (max-width:560px){
-    .row{grid-template-columns:1fr}
-  }
-</style>
-</head>
-<body>
-
-<header class="site">
-  <div class="nav">
-    <div class="brand">
-      <svg class="mark" viewBox="0 0 34 34" fill="none">
-        <rect width="34" height="34" rx="7" fill="#0F6E63"/>
-        <path d="M7 24h20" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-        <path d="M11 24V14M17 24V9M23 24v-7" stroke="#8FD6CC" stroke-width="2" stroke-linecap="round"/>
-        <circle cx="17" cy="9" r="2.6" fill="#fff"/>
-      </svg>
-      <span>דרכי נועם</span>
-    </div>
-    <div class="nav-links">
-      <a href="#about">אודות</a>
-      <a href="#sources">מקורות זיהום</a>
-      <a href="#process">שלבי חקירת אתר</a>
-      <a href="#more-info">מידע נוסף</a>
-      <a href="#contact">צור קשר</a>
-    </div>
-    <div class="nav-right">
-      <button class="btn btn-main" onclick="document.getElementById('contact').scrollIntoView()">השארת פרטים וקבלת הצעת מחיר</button>
-    </div>
-  </div>
-</header>
-
-<!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <h1>התמחות בסקרי קרקע וגז קרקע והנפקת אישורי NFA</h1>
-        
-        <div class="hero-badges">
-          <div class="hero-badge">
-            <svg viewBox="0 0 20 20" fill="none"><path d="m4 10 4 4L16 6" stroke="#0A5F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            התמחות בחקירת קרקע בבנייה פרטית
-          </div>
-          <div class="hero-badge">
-            <svg viewBox="0 0 20 20" fill="none"><path d="m4 10 4 4L16 6" stroke="#0A5F52" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            ליווי מלא מול המשרד להגנ"ס עד להנפקת אישור NFA
-          </div>
-        </div>
-
-        <div class="lede">
-          הוועדה המקומית דורשת מכם בדיקת קרקע כתנאי להיתר הבנייה? הדרישה מופיעה כאשר האתר או סביבתו מוגדרים כאזורים בעלי פוטנציאל לזיהום קרקע או גז קרקע על פי נתוני הרשות והמשרד להגנת הסביבה.<br><br>
-          השלמת ההליך ומילוי דרישות הסביבה מותנים בקבלת אישור NFA (No Further Action) מהמשרד להגנת הסביבה והגשתו לוועדה.<br><br>
-          אנו מעניקים ליווי מקצועי ומקיף לביצוע דיגום קרקע, סקר היסטורי וניהול הליך החקירה והנפקת אישור NFA עבור פרויקטי מגורים ובנייה פרטית.
-        </div>
-
-        <div class="hero-actions">
-          <button class="btn btn-main btn-lg" onclick="document.getElementById('contact').scrollIntoView()">השאירו פרטים</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= מתי נדרש ================= -->
-<section class="alt">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>מדוע אתר הנמצא באזור מגורים נדרש בחקירת קרקע?</h2>
-    </div>
-    <div class="cards">
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V8l5-3 5 3v13M15 21V11h5v10" stroke="#0F6E63" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
-        <div>
-          <h3>סיבות היסטוריות</h3>
-          <p>בעבר פעל באתר ו\או בסמוך לו עסק בעל פוטנציאל זיהום קרקע.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M6 20c2.2-3-2.2-5 0-8s2.2-5 0-8M12 20c2.2-3-2.2-5 0-8s2.2-5 0-8M18 20c2.2-3-2.2-5 0-8s2.2-5 0-8" stroke="#0F6E63" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></div>
-        <div>
-          <h3>גז קרקע</h3>
-          <p>ייתכן והאתר נמצא באזור בו קיימים זיהומים בתת הקרקע ובמי התהום היוצרים גזי קרקע שעלולים לחדור למבנים ולהוות מפגע בריאותי.</p>
-        </div>
-      </div>
-      <div class="card">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" stroke="#0F6E63" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" stroke="#0F6E63" stroke-width="1.8"/></svg></div>
-        <div>
-          <h3>שימושי קרקע</h3>
-          <p>עפ"י שכבת "אזורי בדיקות קרקע לתכנון ובנייה" האתר המבוקש נמצא בתחום רדיוס פוטנציאלי של אזור/שימוש בו קיים פוטנציאל זיהום.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= מקורות זיהום ================= -->
-<section id="sources">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>מקורות זיהום</h2>
-    </div>
-    <div class="src-grid">
-      <div class="prose">
-        <p>חקירת קרקע מתמקדת בשני פאזות: קרקע וגז קרקע. זיהום קרקע נובע בדרך כלל מפעילות מוקדית שהייתה או עדיין מתקיימת באתר ובה היה כשל בתהליך הייצור, אחסון ו\או הטיפול של חומרים מסוימים שגרם לזליגתם לקרקע.</p>
-        <p>מעבר לזיהום, מי תהום מזוהמים מהווים מקור מרכזי ורחב היקף לגזי קרקע עקב נידוף חומרים אורגניים נדיפים (VOCs) וסמי-נדיפים (SVOCs) בין חלקיקי הקרקע. מרבית הזיהומים במי התהום הם היסטוריים, ומקורם בחומרים שחלחלו בעבר לתת-הקרקע ממוקדים שונים: תעשיות ביטחוניות (לדוגמה מפעלי תע"ש), מכבסות ניקוי יבש (ממסים מוכלרים כגון PCE ו-TCE), מפעלי מתכות וציפויים (מדללים וממסים), ותחנות ותשתיות דלק (פחמימנים קלים כגון BTEX).</p>
-        <p>המזהמים המגיעים למי התהום מוסעים איתם במרחב ויוצרים פלומת זיהום הנפרשת על פני מאות מטרים ואף קילומטרים מעבר לגבולות האתר המזהם. במהלך הסעתם, החומרים עוברים מהפאזה הנוזלית לפאזה גזית, מפעפעים בתווך הלא-רווי, ומייצרים סיכון משמעותי לחדירת גזי קרקע למבנים ולפגיעה בבריאות האנשים השוהים במבנה.</p>
-      </div>
-      <figure class="src-fig">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 720" width="600" height="720" role="img" aria-labelledby="gm-title gm-desc" direction="rtl" font-family="Heebo, Arial, 'Segoe UI', sans-serif">
-        <title id="gm-title">מעבר גזי קרקע ממי תהום אל קומה תת-קרקעית</title>
-        <desc id="gm-desc">חתך סכמטי: מזהמים מסוג VOCs ו-SVOCs במי התהום נודפים, עולים דרך התווך הלא רווי ונכנסים לקומה התת-קרקעית של מבנה.</desc>
-        <defs>
-        <clipPath id="gm-clip"><rect x="0" y="0" width="600" height="720" rx="14"/></clipPath>
-        <pattern id="gm-soil" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="3" cy="4" r="1.3" fill="#CDB88F"/><circle cx="11" cy="10" r="1.6" fill="#CDB88F"/><circle cx="14" cy="2.5" r="0.9" fill="#D9C7A3"/><circle cx="6" cy="13" r="1" fill="#D9C7A3"/></pattern>
-        </defs>
-        <g clip-path="url(#gm-clip)">
-        <rect width="600" height="720" fill="#FFFFFF"/>
-        <rect x="0" y="130" width="600" height="340" fill="#EADBC1"/>
-        <rect x="0" y="130" width="600" height="340" fill="url(#gm-soil)"/>
-        <rect x="0" y="470" width="600" height="180" fill="#BCDCEA"/>
-        <path d="M0,470 Q15,465 30,470 Q45,465 60,470 Q75,465 90,470 Q105,465 120,470 Q135,465 150,470 Q165,465 180,470 Q195,465 210,470 Q225,465 240,470 Q255,465 270,470 Q285,465 300,470 Q315,465 330,470 Q345,465 360,470 Q375,465 390,470 Q405,465 420,470 Q435,465 450,470 Q465,465 480,470 Q495,465 510,470 Q525,465 540,470 Q555,465 570,470 Q585,465 600,470" fill="none" stroke="#4F9BB8" stroke-width="2.5"/>
-        <ellipse cx="305" cy="562" rx="150" ry="64" fill="#E08A2C" opacity=".13"/>
-        <rect x="190" y="50" width="220" height="76" fill="#E4E9EB" stroke="#6F7C81" stroke-width="2"/>
-        <rect x="180" y="42" width="240" height="9" fill="#6F7C81"/>
-        <rect x="212" y="72" width="30" height="28" fill="#FFFFFF" stroke="#8FA0A5" stroke-width="1.5"/>
-        <rect x="285" y="72" width="30" height="28" fill="#FFFFFF" stroke="#8FA0A5" stroke-width="1.5"/>
-        <rect x="358" y="72" width="30" height="28" fill="#FFFFFF" stroke="#8FA0A5" stroke-width="1.5"/>
-        <rect x="198" y="134" width="204" height="120" fill="#F6FAFA"/>
-        <rect x="190" y="126" width="220" height="8" fill="#6F7C81"/>
-        <rect x="190" y="134" width="8" height="132" fill="#6F7C81"/>
-        <rect x="402" y="134" width="8" height="132" fill="#6F7C81"/>
-        <rect x="190" y="254" width="220" height="12" fill="#6F7C81"/>
-        <rect x="253" y="254" width="14" height="12" fill="#F6FAFA"/>
-        <rect x="333" y="254" width="14" height="12" fill="#F6FAFA"/>
-        <path d="M150.0,466.0 L152.1,463.4 L154.2,460.7 L155.9,458.1 L157.3,455.5 L158.3,452.9 L158.8,450.2 L158.8,447.6 L158.4,445.0 L157.6,442.3 L156.6,439.7 L155.5,437.1 L154.4,434.5 L153.4,431.8 L152.7,429.2 L152.4,426.6 L152.5,423.9 L153.1,421.3 L154.3,418.7 L155.9,416.1 L157.9,413.4 L160.3,410.8 L162.9,408.2 L165.7,405.5 L168.4,402.9 L171.1,400.3 L173.6,397.7 L175.7,395.0 L177.6,392.4 L179.1,389.8 L180.2,387.1 L181.0,384.5 L181.4,381.9 L181.7,379.3 L181.9,376.6 L182.0,374.0 L182.2,371.4 L182.5,368.7 L183.0,366.1 L183.8,363.5 L184.9,360.9 L186.2,358.2 L187.8,355.6 L189.7,353.0 L191.7,350.3 L193.8,347.7 L196.0,345.1 L198.1,342.5 L200.1,339.8 L202.0,337.2 L203.6,334.6 L205.0,331.9 L206.2,329.3 L207.1,326.7 L207.8,324.1 L208.3,321.4 L208.6,318.8 L208.9,316.2 L209.2,313.5 L209.4,310.9 L209.7,308.3 L210.1,305.7 L210.5,303.0 L211.0,300.4 L211.6,297.8 L212.1,295.1 L212.7,292.5 L213.2,289.9 L213.6,287.3 L213.9,284.6 L214.0,282.0" fill="none" stroke="#C25A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-        <path d="M214.0,271.0 L207.5,283.0 L220.5,283.0 Z" fill="#C25A2B"/>
-        <path d="M240.0,466.0 L242.2,463.4 L244.1,460.7 L245.6,458.1 L246.5,455.5 L246.9,452.9 L246.6,450.2 L245.8,447.6 L244.5,445.0 L242.8,442.3 L241.1,439.7 L239.4,437.1 L238.0,434.5 L237.0,431.8 L236.5,429.2 L236.6,426.6 L237.2,423.9 L238.4,421.3 L240.0,418.7 L241.9,416.1 L244.0,413.4 L245.9,410.8 L247.7,408.2 L249.2,405.5 L250.2,402.9 L250.7,400.3 L250.8,397.7 L250.5,395.0 L249.8,392.4 L248.9,389.8 L247.9,387.1 L246.9,384.5 L246.2,381.9 L245.7,379.3 L245.7,376.6 L246.0,374.0 L246.7,371.4 L247.8,368.7 L249.1,366.1 L250.6,363.5 L252.1,360.9 L253.6,358.2 L254.9,355.6 L256.0,353.0 L256.8,350.3 L257.2,347.7 L257.4,345.1 L257.3,342.5 L256.9,339.8 L256.5,337.2 L256.0,334.6 L255.6,331.9 L255.3,329.3 L255.2,326.7 L255.3,324.1 L255.6,321.4 L256.1,318.8 L256.7,316.2 L257.4,313.5 L258.2,310.9 L258.9,308.3 L259.5,305.7 L260.0,303.0 L260.3,300.4 L260.5,297.8 L260.6,295.1 L260.5,292.5 L260.3,289.9 L260.2,287.3 L260.1,284.6 L260.0,282.0" fill="none" stroke="#C25A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-        <path d="M260,282 L260,226" fill="none" stroke="#C25A2B" stroke-width="2.4" stroke-linecap="round"/>
-        <path d="M260.0,212.0 L253.5,224.0 L266.5,224.0 Z" fill="#C25A2B"/>
-        <path d="M360.0,466.0 L362.1,463.4 L364.0,460.7 L365.4,458.1 L366.2,455.5 L366.3,452.9 L365.8,450.2 L364.6,447.6 L363.0,445.0 L361.0,442.3 L358.9,439.7 L356.8,437.1 L354.9,434.5 L353.4,431.8 L352.4,429.2 L351.9,426.6 L351.9,423.9 L352.5,421.3 L353.5,418.7 L354.7,416.1 L356.0,413.4 L357.3,410.8 L358.4,408.2 L359.1,405.5 L359.3,402.9 L359.1,400.3 L358.4,397.7 L357.2,395.0 L355.7,392.4 L354.0,389.8 L352.1,387.1 L350.4,384.5 L348.8,381.9 L347.5,379.3 L346.5,376.6 L346.0,374.0 L345.8,371.4 L346.0,368.7 L346.5,366.1 L347.2,363.5 L347.9,360.9 L348.5,358.2 L349.0,355.6 L349.3,353.0 L349.2,350.3 L348.9,347.7 L348.3,345.1 L347.4,342.5 L346.3,339.8 L345.1,337.2 L344.0,334.6 L342.9,331.9 L341.9,329.3 L341.1,326.7 L340.6,324.1 L340.3,321.4 L340.2,318.8 L340.3,316.2 L340.6,313.5 L340.8,310.9 L341.1,308.3 L341.3,305.7 L341.4,303.0 L341.5,300.4 L341.3,297.8 L341.1,295.1 L340.9,292.5 L340.6,289.9 L340.3,287.3 L340.1,284.6 L340.0,282.0" fill="none" stroke="#C25A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-        <path d="M340,282 L340,226" fill="none" stroke="#C25A2B" stroke-width="2.4" stroke-linecap="round"/>
-        <path d="M340.0,212.0 L333.5,224.0 L346.5,224.0 Z" fill="#C25A2B"/>
-        <path d="M450.0,466.0 L452.1,463.4 L453.9,460.7 L455.2,458.1 L456.1,455.5 L456.4,452.9 L456.1,450.2 L455.2,447.6 L453.7,445.0 L451.8,442.3 L449.5,439.7 L447.0,437.1 L444.4,434.5 L441.8,431.8 L439.4,429.2 L437.3,426.6 L435.5,423.9 L434.2,421.3 L433.2,418.7 L432.7,416.1 L432.5,413.4 L432.6,410.8 L432.9,408.2 L433.3,405.5 L433.6,402.9 L433.8,400.3 L433.7,397.7 L433.3,395.0 L432.5,392.4 L431.4,389.8 L429.8,387.1 L427.9,384.5 L425.7,381.9 L423.2,379.3 L420.6,376.6 L418.0,374.0 L415.4,371.4 L413.0,368.7 L410.8,366.1 L408.9,363.5 L407.2,360.9 L405.9,358.2 L404.9,355.6 L404.1,353.0 L403.5,350.3 L403.1,347.7 L402.8,345.1 L402.5,342.5 L402.1,339.8 L401.6,337.2 L401.0,334.6 L400.2,331.9 L399.2,329.3 L398.0,326.7 L396.8,324.1 L395.4,321.4 L394.0,318.8 L392.5,316.2 L391.2,313.5 L389.9,310.9 L388.8,308.3 L387.9,305.7 L387.1,303.0 L386.6,300.4 L386.2,297.8 L386.0,295.1 L385.9,292.5 L385.9,289.9 L385.9,287.3 L386.0,284.6 L386.0,282.0" fill="none" stroke="#C25A2B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity=".9"/>
-        <path d="M386.0,271.0 L379.5,283.0 L392.5,283.0 Z" fill="#C25A2B"/>
-        <circle cx="165.4" cy="434.5" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M176.7,401.4 L180.8,405.5 L176.7,409.7 L172.5,405.5 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="193.0" cy="374.0" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M185.0,341.0 L189.1,345.1 L185.0,349.2 L180.9,345.1 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="197.9" cy="316.2" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="227.0" cy="434.5" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="238.2" cy="405.5" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M235.0,369.9 L239.1,374.0 L235.0,378.1 L230.9,374.0 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="268.4" cy="345.1" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M267.7,312.0 L271.8,316.2 L267.7,320.3 L263.6,316.2 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <path d="M365.9,430.3 L370.0,434.5 L365.9,438.6 L361.8,434.5 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="370.1" cy="405.5" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="357.0" cy="374.0" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="337.3" cy="345.1" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="329.3" cy="316.2" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="433.4" cy="434.5" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M422.3,401.4 L426.4,405.5 L422.3,409.7 L418.2,405.5 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="407.0" cy="374.0" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M413.8,341.0 L417.9,345.1 L413.8,349.2 L409.7,345.1 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="403.5" cy="316.2" r="3.4" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="296.8" cy="570.4" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M402.9,551.7 L408.4,557.2 L402.9,562.7 L397.4,557.2 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="236.5" cy="563.7" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="336.7" cy="603.0" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M216.2,529.0 L221.7,534.5 L216.2,540.0 L210.7,534.5 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="215.4" cy="605.4" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="313.9" cy="500.3" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M201.8,551.5 L207.3,557.0 L201.8,562.5 L196.3,557.0 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="294.1" cy="609.9" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="297.9" cy="530.9" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M384.0,585.6 L389.5,591.1 L384.0,596.6 L378.5,591.1 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="265.9" cy="524.2" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="367.4" cy="548.1" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M411.9,592.6 L417.4,598.1 L411.9,603.6 L406.4,598.1 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="374.3" cy="516.9" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="320.8" cy="554.6" r="4.6" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M263.4,610.4 L268.9,615.9 L263.4,621.4 L257.9,615.9 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <path d="M212,160 q12,-9 24,0 t24,0 t24,0 t24,0 t24,0 t24,0 t24,0" fill="none" stroke="#E08A2C" stroke-width="1.6" opacity=".35"/>
-        <path d="M212,188 q12,-9 24,0 t24,0 t24,0 t24,0 t24,0 t24,0 t24,0" fill="none" stroke="#E08A2C" stroke-width="1.6" opacity=".35"/>
-        <circle cx="226.0" cy="226.0" r="4.8" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M246.0,232.2 L251.8,238.0 L246.0,243.8 L240.2,238.0 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="292.0" cy="228.0" r="4.8" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M318.0,230.2 L323.8,236.0 L318.0,241.8 L312.2,236.0 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="372.0" cy="230.0" r="4.8" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="300.0" cy="196.0" r="4.8" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M228.0,170.2 L233.8,176.0 L228.0,181.8 L222.2,176.0 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="268.0" cy="158.0" r="4.8" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="330.0" cy="168.0" r="4.8" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M372.0,146.2 L377.8,152.0 L372.0,157.8 L366.2,152.0 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <circle cx="214.0" cy="148.0" r="4.8" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <circle cx="386.0" cy="200.0" r="4.8" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <path d="M300.0,140.2 L305.8,146.0 L300.0,151.8 L294.2,146.0 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <text x="92" y="296" text-anchor="middle" font-size="17" font-weight="700" fill="#161B22" direction="rtl">קרקע</text>
-        <text x="92" y="318" text-anchor="middle" font-size="13.5" font-weight="500" fill="#4A5A5F" direction="rtl">(תווך לא רווי)</text>
-        <text x="92" y="548" text-anchor="middle" font-size="17" font-weight="700" fill="#161B22" direction="rtl">מי תהום</text>
-        <text x="92" y="176" text-anchor="middle" font-size="15" font-weight="700" fill="#161B22" direction="rtl">קומה תת-קרקעית</text>
-        <path d="M158,172 L188,172" stroke="#161B22" stroke-width="1.4"/><circle cx="190" cy="172" r="3.2" fill="#161B22"/>
-        <text x="500" y="300" text-anchor="middle" font-size="17" font-weight="700" fill="#161B22" direction="rtl">גזי קרקע</text>
-        <text x="500" y="321" text-anchor="middle" font-size="13.5" font-weight="500" fill="#4A5A5F" direction="rtl">נודפים ממי התהום</text>
-        <text x="500" y="340" text-anchor="middle" font-size="13.5" font-weight="500" fill="#4A5A5F" direction="rtl">ועולים אל המבנה</text>
-        <text x="500" y="536" text-anchor="middle" font-size="16" font-weight="700" fill="#161B22" direction="rtl">מזהמים מומסים</text>
-        <text x="500" y="556" text-anchor="middle" font-size="12.5" font-weight="500" fill="#4A5A5F" direction="rtl">ממשפחות VOCs ו-SVOCs</text>
-        <text x="500" y="168" text-anchor="middle" font-size="15" font-weight="700" fill="#161B22" direction="rtl">גזים בתוך</text>
-        <text x="500" y="188" text-anchor="middle" font-size="15" font-weight="700" fill="#161B22" direction="rtl">הקומה התת-קרקעית</text>
-        <path d="M424,172 L392,162" stroke="#161B22" stroke-width="1.4" fill="none"/><circle cx="390" cy="161.5" r="3.2" fill="#161B22"/>
-        <line x1="0" y1="650" x2="600" y2="650" stroke="#D5DADB" stroke-width="1.2"/>
-        <circle cx="572.0" cy="686.0" r="5.5" fill="#E08A2C" stroke="#B96E1C" stroke-width="1.2"/>
-        <text x="448" y="691" text-anchor="middle" font-size="13" font-weight="600" fill="#161B22" direction="rtl">VOCs – חומרים אורגניים נדיפים</text>
-        <path d="M316.0,679.5 L322.5,686.0 L316.0,692.5 L309.5,686.0 Z" fill="#7B3F8D" stroke="#58286A" stroke-width="1.2"/>
-        <text x="174" y="691" text-anchor="middle" font-size="13" font-weight="600" fill="#161B22" direction="rtl">SVOCs – חומרים אורגניים סמי-נדיפים</text>
-        </g>
-        <rect x="0.75" y="0.75" width="598.5" height="718.5" rx="14" fill="none" stroke="#161B22" stroke-opacity=".16" stroke-width="1.5"/>
-        </svg>
-        <figcaption>אילוסטרציה לחדירת גזי קרקע למבנים</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ================= שלבי חקירת אתר ================= -->
-<section id="process" class="alt">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>שלבי העבודה באתר הנדרש בחקירת קרקע</h2>
-    </div>
-
-    <div class="chart">
-      <div class="chart-step">הגשת סקר היסטורי למשרד להגנת הסביבה עם תכנית לחקירת קרקע</div>
-      <div class="chart-connector"></div>
-      <div class="chart-step">אישור הסקר ותכנית החקירה ע״י המשרד להגנ"ס<span class="chart-note">* ככל ואין דרישה להשלמות</span></div>
-      <div class="chart-connector"></div>
-      <div class="chart-step">ביצוע דיגום קרקע / גז קרקע</div>
-      <div class="chart-connector"></div>
-      <div class="chart-step">הגשת דו״ח ממצאים והמלצות</div>
-
-      <div class="chart-split">
-        <div class="chart-branch">
-          <div class="chart-outcome-label good">לא נמצא זיהום</div>
-          <div class="chart-result">סיום חקירת הקרקע וקבלת אישור NFA מהמשרד להגנת הסביבה</div>
-        </div>
-        <div class="chart-branch">
-          <div class="chart-outcome-label bad">נמצא זיהום</div>
-          <div class="chart-split sub">
-            <div class="chart-branch">
-              <div class="chart-step">זיהום בגז קרקע</div>
-              <div class="chart-result">המלצה למיגון המבנה מפני חדירת גזי קרקע, וקבלת אישור NFA המתנה את היתר הבנייה בביצוע המיגון בהתאם להנחיות הגנ"ס</div>
-            </div>
-            <div class="chart-branch">
-              <div class="chart-step">זיהום קרקע</div>
-              <div class="chart-result">הצעה ואישור תוכנית שיקום (חפירה ופינוי הקרקע המזוהמת) וביצוע דיגום מאמת להוכחת קרקע נקייה. סיום ההליך מול המשרד וקבלת אישור NFA</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= מידע נוסף ================= -->
-<section id="more-info">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2>מידע נוסף ומקורות מקצועיים</h2>
-      <p>כל מה שכדאי לדעת על מונחים מקצועיים, דרישות סף וקישורים לגופים הרגולטוריים הרלוונטיים</p>
-    </div>
-
-    <div class="info-grid">
-      <!-- מילון מונחים -->
-      <div class="info-box">
-        <h3>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5Z" stroke="#0E7C6B" stroke-width="2"/><path d="M6 6h10M6 10h10" stroke="#0E7C6B" stroke-width="2" stroke-linecap="round"/></svg>
-          מילון מונחים מקצועי
-        </h3>
-        <ul>
-          <li><strong>NFA (No Further Action):</strong> אישור רשמי מהמשרד להגנת הסביבה המעיד על סיום ההליך וכי אין דרישות חקירה או שיקום נוספות באתר.</li>
-          <li><strong>סקר היסטורי (Phase I):</strong> איסוף תיעוד ארכיוני, צילומי אוויר ובדיקת שימושי קרקע קודמים לאיתור חוששי זיהום.</li>
-          <li><strong>תווך לא-רווי (Vadose Zone):</strong> שכבת הקרקע שבין פני השטח לבין מי התהום, דרכה מפעפעים גזי קרקע.</li>
-          <li><strong>VOCs / SVOCs:</strong> חומרים אורגניים נדיפים וסמי-נדיפים (כגון ממסי ניקוי יבש ודלקים) המהווים מקור לגזי קרקע.</li>
-        </ul>
-      </div>
-
-      <div class="info-box">
-        <h3>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="2" stroke="#0E7C6B" stroke-width="2"/><path d="M7 7h10M7 12h10M7 17h6" stroke="#0E7C6B" stroke-width="2" stroke-linecap="round"/></svg>
-          המידע הנדרש מבעל הנכס
-        </h3>
-        <ul>
-          <li><strong>זיהוי נכס:</strong> כתובת מלאה, מספר גוש וחלקה.</li>
-          <li><strong>תכנית הנדסית:</strong> תשריט הנדסי של התכנית המוצעת המציג את גבולות התכנית ועומק חפירה מתוכנן.</li>
-          <li><strong>היסטוריית שימושים:</strong> מידע ידוע על פעילות עסקית קודמת בנכס או בחלקות הגובלות (לדוגמה: מוסכים, מכבסות, תעשייה).</li>
-          <li><strong>דרישת הוועדה:</strong> מכתב הדרישה או התנאי למתן היתר מטעם הוועדה המקומית לתכנון ובנייה.</li>
-        </ul>
-      </div>
-
-      <div class="info-box info-full">
-        <h3>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#0E7C6B" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10z" stroke="#0E7C6B" stroke-width="2"/></svg>
-          קישורים לאתרים ולגופים רגולטוריים
-        </h3>
-        <ul style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px; text-align:right;">
-          <li style="background:var(--bg); padding:14px; border-radius:8px; border:1px solid var(--line);">
-            <strong>המשרד להגנת הסביבה</strong><br>
-            <span style="font-size:0.9rem; display:block; margin:6px 0">עיון במסמכי מדיניות, הנחיות מקצועיות ודרישות סף לקרקעות מזוהמות.</span>
-            <a href="https://www.gov.il/he/departments/ministry_of_environmental_protection" target="_blank" rel="noopener">לאתר המשרד &larr;</a>
-          </li>
-          <li style="background:var(--bg); padding:14px; border-radius:8px; border:1px solid var(--line);">
-            <strong>רשות המים</strong><br>
-            <span style="font-size:0.9rem; display:block; margin:6px 0">מידע מקצועי על משאבי מים, מפלסים, איכות מים והנחיות ניטור הידרולוגי.</span>
-            <a href="https://www.gov.il/he/pages/industry" target="_blank" rel="noopener">לאתר רשות המים &larr;</a>
-          </li>
-          <li style="background:var(--bg); padding:14px; border-radius:8px; border:1px solid var(--line);">
-            <strong>GIS עיריית תל אביב-יפו</strong><br>
-            <span style="font-size:0.9rem; display:block; margin:6px 0">מערכת מידע גיאוגרפית עירונית לאיתור שכבות תכנון, גושים וחלקות.</span>
-            <a href="https://gisn.tel-aviv.gov.il/iView2js4/index.aspx" target="_blank" rel="noopener">למערכת ה-GIS &larr;</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= אודות ================= -->
-<section id="about" class="alt">
-  <div class="wrap">
-    <div class="about">
-      <div class="portrait">
-        <!-- התמונה העירונית המשולבת במסגרת מעוגלת ואלגנטית -->
-        <img src="בניינים.jpg" alt="פיתוח ובנייה עירונית">
-      </div>
-      <div>
-        <h2>אודות המשרד</h2>
-        <p>
-          המשרד מספק ליווי מקצועי לבעלי נכסים ויזמים הנדרשים לבצע חקירת קרקע כתנאי לקבלת היתר בנייה.
-        </p>
-        <p>
-          הליווי מבוצע על ידי מומחה בעל תואר ראשון ושני במדעי כדור הארץ והסביבה ממוסדות הלימוד והמחקר המובילים בארץ, ובעל ניסיון מקצועי רב בשוק הפרטי ובעבודה עם המשרד להגנת הסביבה. הניסיון הרגולטורי המקיף מבטיח תהליך יעיל, מדויק וממוקד להשגת אישור NFA במהירות המרבית.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= טופס ================= -->
-<section id="contact" style="padding-top:20px">
-  <div class="wrap">
-    <div class="formwrap">
-      <div class="formside">
-        <h2>צור קשר</h2>
-        <p>מלאו את הפרטים להמשך בירור וקבלת הצעת מחיר. אם יסתבר וניתן יהיה לפטור את הנכס מסקר — אגיד לכם את זה.</p>
-        <div class="assure">
-          <div><svg viewBox="0 0 20 20" fill="none"><path d="M3.5 5.5h13v9h-13z" stroke="#0F6E63" stroke-width="1.6"/><path d="m3.5 6 6.5 4.8L16.5 6" stroke="#0F6E63" stroke-width="1.6" stroke-linejoin="round"/></svg><span>שיחת ייעוץ ללא עלות</span></div>
-        </div>
-      </div>
-
-      <form class="lead" id="leadForm">
-        <div class="row">
-          <div class="field">
-            <label for="name">שם מלא</label>
-            <input id="name" name="name" type="text" required>
-          </div>
-          <div class="field">
-            <label for="phone">טלפון</label>
-            <input id="phone" name="phone" type="tel" required>
-          </div>
-        </div>
-        <div class="field">
-          <label for="email">אימייל</label>
-          <input id="email" name="email" type="email" required>
-        </div>
-        <div class="field">
-          <label for="address">כתובת הנכס</label>
-          <input id="address" name="address" type="text" placeholder="לדוגמה: רחוב הירקון 50, תל אביב">
-        </div>
-        <div class="field">
-          <label for="parcel">גוש וחלקה (אם ידוע)</label>
-          <input id="parcel" name="parcel" type="text" placeholder="לדוגמה: גוש 6941 חלקה 112">
-        </div>
-        <div class="field">
-          <label for="details">על הפרויקט (לא חובה)</label>
-          <textarea id="details" name="details" placeholder="למשל: תוספת מרתף לבית פרטי / בקשה להיתר לבניין מגורים חדש"></textarea>
-        </div>
-        <button type="submit" class="btn btn-main btn-lg" style="width:100%">שליחה</button>
-        <p class="hint">אפשר גם בוואטסאפ או בטלפון — מה שנוח לכם</p>
-        <p id="msg"></p>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <p>© 2026 דרכי נועם · סקרים היסטוריים וחקירות קרקע</p>
-    <p><a href="tel:0500000000">050-000-0000</a> · <a href="mailto:info@example.co.il">info@example.co.il</a></p>
-  </div>
-</footer>
-
-<div class="float">
-  <a class="fw" href="https://wa.me/972500000000" aria-label="וואטסאפ">
-    <svg viewBox="0 0 24 24" width="27" height="27" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.2.7-1.3 1.3-1.9 1.3-.5 0-1.1.2-3.6-.8-3-1.3-4.9-4.4-5-4.6-.2-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .7.5l1 2.3c.1.2.2.4 0 .7l-.4.6-.3.3c-.1.2-.3.4-.1.7.2.3.8 1.4 1.8 2.3 1.3 1.1 2.3 1.5 2.6 1.6.3.2.5.1.7-.1l.9-1c.2-.3.4-.2.7-.1l2.2 1c.3.2.5.3.6.4.1.2.1.8-.1 1.5Z"/></svg>
-  </a>
-</div>
-
-<script>
-  const FORM_ENDPOINT = "";
-
-  document.getElementById('leadForm').addEventListener('submit', function(e){
-    e.preventDefault();
-    const msg = document.getElementById('msg');
-    const ok = () => {
-      msg.textContent = "תודה! הפרטים התקבלו, אחזור אליכם תוך יום עסקים.";
-      msg.style.background = "#E6F1EF"; msg.style.color = "#0B544B";
-      msg.classList.add('show'); e.target.reset();
-    };
-    if(!FORM_ENDPOINT){
-      msg.textContent = "הטופס עדיין לא מחובר לשירות שליחה (ראו הערה בקוד).";
-      msg.style.background = "#FDF3EC"; msg.style.color = "#8A4326";
-      msg.classList.add('show');
-      return;
+  <!-- Google Fonts: Heebo & Assistant -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;500;600;700&family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              slate: '#0f172a',
+              navy: '#1e293b',
+              emerald: '#059669',
+              emeraldDark: '#047857',
+              emeraldLight: '#ecfdf5',
+              amber: '#d97706',
+              amberLight: '#fffbeb',
+            }
+          },
+          fontFamily: {
+            sans: ['Heebo', 'Assistant', 'sans-serif'],
+          },
+          boxShadow: {
+            'glow-emerald': '0 0 25px -5px rgba(5, 150, 105, 0.4)',
+            'card-hover': '0 20px 30px -10px rgba(15, 23, 42, 0.08)',
+          }
+        }
+      }
     }
-    fetch(FORM_ENDPOINT,{method:'POST',body:new FormData(e.target),headers:{'Accept':'application/json'}})
-      .then(ok)
-      .catch(()=>{
-        msg.textContent = "השליחה נכשלה. אפשר להתקשר או לכתוב בוואטסאפ.";
-        msg.style.background = "#FDF3EC"; msg.style.color = "#8A4326";
-        msg.classList.add('show');
-      });
-  });
-</script>
+  </script>
 
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Heebo', 'Assistant', sans-serif;
+    }
+    
+    /* Subtle dot grid pattern */
+    .bg-grid-pattern {
+      background-image: radial-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+
+    /* Pulse animation for WhatsApp badge */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 12px rgba(5, 150, 105, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); }
+    }
+    .pulse-ring {
+      animation: pulse-ring 2.2s infinite cubic-bezier(0.45, 0, 0.55, 1);
+    }
+
+    /* Custom accordion styles */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+  </style>
+</head>
+<body class="bg-white text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- ================= TOP EMERGENCY BANNER / ANNOUNCEMENT ================= -->
+  <div class="bg-slate-900 text-slate-200 text-xs md:text-sm py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+          זמינות מיידית
+        </span>
+        <span class="font-medium text-slate-300">קיבלתם דרישה לסקר קרקע בהיתר? צוות יועצים זמין לשיחת אפיון ראשונית היום!</span>
+      </div>
+      <div class="flex items-center gap-4 text-xs">
+        <span class="flex items-center gap-1.5 text-slate-400">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
+          מעבדות מוסמכות ISO 17025
+        </span>
+        <span class="hidden md:flex items-center gap-1.5 text-slate-400">
+          <i data-lucide="clock" class="w-3.5 h-3.5 text-amber-400"></i>
+          מענה מהיר תוך שעתיים
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 1. STICKY HEADER (NAVBAR) ================= -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-white/95 border-b border-slate-200/80 transition-all duration-300 shadow-sm" id="mainHeader">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo (Right Side) -->
+        <a href="#" class="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg p-1">
+          <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-slate-900 to-slate-800 border border-slate-700 flex items-center justify-center text-emerald-400 shadow-md group-hover:scale-105 transition-transform">
+            <i data-lucide="layers" class="w-6 h-6"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-extrabold text-slate-900 tracking-tight flex items-center gap-1">
+              אקו-קרקע
+              <span class="text-emerald-600 text-xs font-semibold px-1.5 py-0.5 bg-emerald-50 rounded border border-emerald-200">הנדסה</span>
+            </span>
+            <span class="text-xs text-slate-500 font-medium">ייעוץ וסקרי קרקע להיתר בנייה</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links (Center) -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <a href="#services" class="text-sm font-semibold text-slate-700 hover:text-emerald-600 transition-colors py-1">השירותים שלנו</a>
+          <a href="#process" class="text-sm font-semibold text-slate-700 hover:text-emerald-600 transition-colors py-1">תהליך העבודה</a>
+          <a href="#why-us" class="text-sm font-semibold text-slate-700 hover:text-emerald-600 transition-colors py-1">למה אנחנו?</a>
+          <a href="#calculator" class="text-sm font-semibold text-slate-700 hover:text-emerald-600 transition-colors py-1 flex items-center gap-1">
+            <span>מחשבון עלויות</span>
+            <span class="text-[10px] font-bold bg-amber-100 text-amber-800 px-1.5 py-0.5 rounded-full">חדש</span>
+          </a>
+          <a href="#faq" class="text-sm font-semibold text-slate-700 hover:text-emerald-600 transition-colors py-1">שאלות נפוצות</a>
+          <a href="#contact" class="text-sm font-semibold text-slate-700 hover:text-emerald-600 transition-colors py-1">יצירת קשר</a>
+        </nav>
+
+        <!-- CTAs (Left Side) -->
+        <div class="hidden sm:flex items-center gap-3">
+          <!-- Direct Phone Button -->
+          <a href="tel:0508912345" class="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:text-slate-900 hover:border-slate-400 font-semibold text-sm transition bg-white shadow-xs">
+            <i data-lucide="phone-call" class="w-4 h-4 text-emerald-600"></i>
+            <span dir="ltr">050-891-2345</span>
+          </a>
+
+          <!-- Primary WhatsApp CTA -->
+          <a href="https://wa.me/972508912345?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A7%D7%95-%D7%A7%D7%A8%D7%A7%D7%A2%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A1%D7%A7%D7%A8%20%D7%A7%D7%A8%D7%A7%D7%A2%20%D7%9C%D7%94%D7%99%D7%AA%D7%A8%20%D7%91%D7%A0%D7%99%D7%99%D7%94%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D" 
+             target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>ייעוץ מהיר בוואטסאפ</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" id="mobileMenuBtn" aria-label="פתח תפריט ניווט" class="lg:hidden p-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-emerald-500">
+          <i data-lucide="menu" id="menuIcon" class="w-6 h-6"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 bg-white/98 px-4 pt-3 pb-6 shadow-xl">
+      <div class="flex flex-col gap-3">
+        <a href="#services" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-emerald-600 py-2 border-b border-slate-100">השירותים שלנו</a>
+        <a href="#process" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-emerald-600 py-2 border-b border-slate-100">תהליך העבודה</a>
+        <a href="#why-us" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-emerald-600 py-2 border-b border-slate-100">למה אנחנו?</a>
+        <a href="#calculator" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-emerald-600 py-2 border-b border-slate-100 flex items-center justify-between">
+          <span>מחשבון עלויות</span>
+          <span class="text-xs bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full font-bold">חדש</span>
+        </a>
+        <a href="#faq" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-emerald-600 py-2 border-b border-slate-100">שאלות נפוצות</a>
+        <a href="#contact" class="mobile-nav-link text-base font-semibold text-slate-800 hover:text-emerald-600 py-2 border-b border-slate-100">יצירת קשר</a>
+        
+        <div class="flex flex-col gap-2.5 pt-3">
+          <a href="tel:0508912345" class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl border border-slate-300 font-bold text-slate-800 bg-slate-50">
+            <i data-lucide="phone-call" class="w-4 h-4 text-emerald-600"></i>
+            <span>חייגו: 050-891-2345</span>
+          </a>
+          <a href="https://wa.me/972508912345?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A1%D7%A7%D7%A8%20%D7%A7%D7%A8%D7%A7%D7%A2%20%D7%9C%D7%94%D7%99%D7%AA%D7%A8%20%D7%91%D7%A0%D7%99%D7%99%D7%94" 
+             target="_blank" rel="noopener noreferrer"
+             class="w-full inline-flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 text-white font-bold shadow-md">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>ייעוץ מהיר בוואטסאפ</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 2. HERO SECTION ================= -->
+  <section class="relative bg-gradient-to-b from-slate-50 via-white to-slate-50 pt-8 pb-16 lg:pt-14 lg:pb-24 overflow-hidden bg-grid-pattern">
+    <!-- Ambient glow decorative blobs -->
+    <div class="absolute -top-32 right-1/4 w-96 h-96 bg-emerald-200/30 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/2 -left-20 w-80 h-80 bg-blue-200/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        
+        <!-- Right Column (Copy + Quick Action) - 7 cols on desktop -->
+        <div class="lg:col-span-7 flex flex-col items-start text-right">
+          
+          <!-- Trust Badge (Floating Pill) -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs sm:text-sm font-bold mb-6 shadow-xs">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
+            </span>
+            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-600"></i>
+            <span>מאושר ומותאם לדרישות המשרד להגנת הסביבה</span>
+          </div>
+
+          <!-- H1 Headline -->
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.2] mb-6">
+            סקר קרקע מהיר ומדויק – 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-700 block mt-1">
+              הדרך הבטוחה להיתר הבנייה שלך
+            </span>
+          </h1>
+
+          <!-- Sub-headline -->
+          <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mb-8">
+            אל תתנו לבירוקרטיה ולבדיקות סביבתיות לעכב לכם את הפרויקט. אנו מספקים מעטפת הנדסית מלאה של סקרי קרקע, דיגום וגז קרקע בלוחות זמנים מהירים, עד לקבלת האישור המיוחל מהוועדות והמשרד להגנת הסביבה.
+          </p>
+
+          <!-- Bullet Points with checkmark icons -->
+          <div class="space-y-3.5 mb-8 w-full max-w-xl">
+            <div class="flex items-start gap-3 bg-white/70 backdrop-blur-xs p-2.5 rounded-xl border border-slate-100 shadow-2xs">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-sm sm:text-base font-semibold text-slate-800">
+                זמני תגובה וביצוע מהירים במיוחד למניעת עיכובים בפרויקט.
+              </span>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white/70 backdrop-blur-xs p-2.5 rounded-xl border border-slate-100 shadow-2xs">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="file-check" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-sm sm:text-base font-semibold text-slate-800">
+                ליווי בירוקרטי מלא מול המשרד להגנת הסביבה והוועדות המקומיות.
+              </span>
+            </div>
+
+            <div class="flex items-start gap-3 bg-white/70 backdrop-blur-xs p-2.5 rounded-xl border border-slate-100 shadow-2xs">
+              <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 mt-0.5">
+                <i data-lucide="award" class="w-3.5 h-3.5"></i>
+              </div>
+              <span class="text-sm sm:text-base font-semibold text-slate-800">
+                צוות מומחים מוסמך בעל ניסיון במאות פרויקטים מורכבים ברחבי הארץ.
+              </span>
+            </div>
+          </div>
+
+          <!-- Dual CTA Buttons -->
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto">
+            <a href="#quick-form" class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-base shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5 group">
+              <i data-lucide="calculator" class="w-5 h-5 text-emerald-400 group-hover:scale-110 transition-transform"></i>
+              <span>קבלו הצעת מחיר תוך 24 שעות</span>
+              <i data-lucide="arrow-left" class="w-4 h-4 text-slate-400 group-hover:translate-x-1 transition-transform"></i>
+            </a>
+
+            <a href="https://wa.me/972508912345?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A1%D7%A7%D7%A8%20%D7%A7%D7%A8%D7%A7%D7%A2%20%D7%9C%D7%94%D7%99%D7%AA%D7%A8%20%D7%91%D7%A0%D7%99%D7%99%D7%94%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%99%D7%99%D7%A2%D7%95%D7%A5" 
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-base shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+              <i data-lucide="message-circle" class="w-5 h-5"></i>
+              <span>דברו איתנו בוואטסאפ</span>
+            </a>
+          </div>
+
+          <!-- Micro Social Proof -->
+          <div class="mt-6 flex items-center gap-6 text-xs text-slate-500 font-medium">
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-600"></i>
+              בדיקת תיק ראשונית ללא עלות
+            </span>
+            <span class="flex items-center gap-1.5">
+              <i data-lucide="shield" class="w-3.5 h-3.5 text-emerald-600"></i>
+              מחויבות ללוחות זמנים בחוזה
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Left Column (Visual + Lead Form Combo) - 5 cols on desktop -->
+        <div class="lg:col-span-5 relative" id="quick-form">
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Real Engineer Photo Background Card -->
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
+              <img src="./hero-engineer.jpg" 
+                   alt="מהנדס סביבתי של אקו-קרקע מבצע דיגום קרקע באתר בנייה" 
+                   class="w-full h-48 sm:h-56 object-cover object-center filter brightness-95 transform group-hover:scale-105 transition-all duration-700">
+              
+              <!-- Image Gradient Overlay & Tag -->
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+              
+              <div class="absolute bottom-3 right-4 left-4 flex items-center justify-between text-white">
+                <div class="flex items-center gap-2">
+                  <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></div>
+                  <span class="text-xs font-bold tracking-wide">צוות דיגום הנדסי בשטח</span>
+                </div>
+                <span class="text-[11px] bg-slate-800/80 px-2.5 py-0.5 rounded-full border border-slate-600 text-slate-200">
+                  מעבדה מאושרת
+                </span>
+              </div>
+            </div>
+
+            <!-- Instant Lead Capture Card (Overlaid/Paired) -->
+            <div class="mt-4 sm:-mt-6 relative z-10 bg-white rounded-2xl p-6 sm:p-7 shadow-xl border border-slate-200/90 backdrop-blur-sm">
+              <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+                <div>
+                  <h2 class="text-lg sm:text-xl font-black text-slate-900">בדיקת היתכנות והצעת מחיר</h2>
+                  <p class="text-xs text-slate-500 mt-0.5">מענה מיועץ סביבתי מוסמך תוך 24 שעות</p>
+                </div>
+                <span class="inline-flex items-center px-2 py-1 rounded bg-amber-50 text-amber-800 text-[11px] font-bold border border-amber-200">
+                  ללא התחייבות
+                </span>
+              </div>
+
+              <!-- Fast Lead Form -->
+              <form id="heroLeadForm" class="space-y-3.5">
+                <div>
+                  <label for="heroName" class="block text-xs font-bold text-slate-700 mb-1">שם מלא *</label>
+                  <div class="relative">
+                    <input type="text" id="heroName" name="name" required placeholder="לדוגמה: ישראל ישראלי" 
+                           class="w-full px-3.5 py-2.5 pr-9 rounded-xl border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
+                    <i data-lucide="user" class="w-4 h-4 text-slate-400 absolute top-3 right-3 pointer-events-none"></i>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="heroPhone" class="block text-xs font-bold text-slate-700 mb-1">טלפון נייד לחזרה *</label>
+                  <div class="relative">
+                    <input type="tel" id="heroPhone" name="phone" required dir="ltr" placeholder="050-1234567" 
+                           class="w-full px-3.5 py-2.5 pl-3 pr-9 rounded-xl border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition text-right">
+                    <i data-lucide="phone" class="w-4 h-4 text-slate-400 absolute top-3 right-3 pointer-events-none"></i>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label for="heroType" class="block text-xs font-bold text-slate-700 mb-1">סוג הפרויקט</label>
+                    <select id="heroType" name="project_type" class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition bg-white">
+                      <option value="התחדשות עירונית (פינוי בינוי / תמא)">פינוי בינוי / תמ"א 38</option>
+                      <option value="בנייה רוויה למגורים">מגורים בבנייה רוויה</option>
+                      <option value="בנייה פרטית / וילות">בנייה פרטית / צמוד קרקע</option>
+                      <option value="מסחר, תעשייה ומשרדים">מסחר, לוגיסטיקה ומשרדים</option>
+                      <option value="תחנת דלק / מוסך ישן">תחנת דלק / מוסך / אתר חשוד</option>
+                      <option value="אחר">פרויקט אחר</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label for="heroCity" class="block text-xs font-bold text-slate-700 mb-1">עיר / מועצה</label>
+                    <input type="text" id="heroCity" name="city" placeholder="לדוגמה: תל אביב, חיפה" 
+                           class="w-full px-3 py-2.5 rounded-xl border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="heroSubmitBtn" 
+                        class="w-full mt-2 inline-flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base shadow-lg hover:shadow-glow-emerald transition-all transform hover:-translate-y-0.5">
+                  <span id="heroBtnText">שלחו פרטים ונחזור אליכם בהקדם</span>
+                  <i data-lucide="send" id="heroBtnIcon" class="w-4 h-4"></i>
+                </button>
+
+                <!-- Privacy & Guarantee -->
+                <div class="flex items-center justify-center gap-2 text-[11px] text-slate-500 text-center pt-1">
+                  <i data-lucide="lock" class="w-3.5 h-3.5 text-emerald-600"></i>
+                  <span>100% שמירה על פרטיות. ללא ספאם. ייעוץ מקצועי בלבד.</span>
+                </div>
+              </form>
+
+              <!-- Success Alert (Hidden by default) -->
+              <div id="heroSuccessAlert" class="hidden mt-3 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-xs sm:text-sm">
+                <div class="flex items-center gap-2 font-bold mb-1">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600"></i>
+                  <span>פנייתך התקבלה בהצלחה!</span>
+                </div>
+                <p>יועץ סביבתי של אקו-קרקע יצור עמך קשר תוך שעתיים בשעות הפעילות.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. TRUST & AUTHORITY BAR (STATS / USP STRIP) ================= -->
+  <section class="bg-slate-900 text-white py-8 border-y border-slate-800 relative z-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        
+        <!-- Stat 1 -->
+        <div class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+            <i data-lucide="check-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-white tracking-tight flex items-center gap-1">
+              <span>100%</span>
+              <span class="text-emerald-400 text-base font-bold">הצלחה</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-400 mt-0.5">בקבלת אישורי המשרד להגנת הסביבה</p>
+          </div>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+            <i data-lucide="timer" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-white tracking-tight flex items-center gap-1">
+              <span>זמני שיא</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-400 mt-0.5">הגשת דו"חות וביצוע קידוחים בלו"ז מואץ</p>
+          </div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+            <i data-lucide="badge-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-white tracking-tight flex items-center gap-1">
+              <span>תקן ISO</span>
+              <span class="text-xs text-blue-400 font-bold px-1.5 py-0.5 bg-blue-900/50 rounded">17025</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-400 mt-0.5">עבודה עם מעבדות מוסמכות בלבד</p>
+          </div>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="flex items-center gap-4 group">
+          <div class="w-12 h-12 rounded-2xl bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 group-hover:scale-110 transition-transform">
+            <i data-lucide="git-merge" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="text-2xl sm:text-3xl font-black text-white tracking-tight flex items-center gap-1">
+              <span>מקצה לקצה</span>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-400 mt-0.5">מסקר היסטורי ועד טופס 4 וסגירת תיק</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY SOIL SURVEY MATTERS (CRO PAIN POINT SECTION) ================= -->
+  <section class="py-16 bg-white border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-slate-50 via-slate-100/60 to-emerald-50/40 rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <div class="lg:col-span-8">
+            <div class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-100/80 px-3 py-1 rounded-full mb-3">
+              <i data-lucide="alert-triangle" class="w-3.5 h-3.5"></i>
+              צוואר הבקבוק הנפוץ ביותר בהיתרי בנייה
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
+              קיבלתם מהוועדה דרישה לאישור סביבתי? כל שבוע של עיכוב עולה עשרות אלפי שקלים
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6">
+              חוק התכנון והבנייה והנחיות המשרד להגנת הסביבה מחמירים משנה לשנה. מגרשים רבים מוגדרים אוטומטית כ"חשודים בזיהום" עקב שימושי עבר באזור – תחנות דלק, מוסכים, מפעלי תעשייה קלה או מילוי עפר בלתי מבוקר. 
+              <strong>סקר קרקע מקצועי הוא המפתח היחיד שפותח את הדלת להיתר חפירה ודיפון ולטופס 4.</strong>
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-semibold text-slate-700">
+              <div class="flex items-center gap-2 bg-white p-3 rounded-xl border border-slate-200">
+                <i data-lucide="x-circle" class="w-4 h-4 text-red-500 shrink-0"></i>
+                <span>בלי סקר מאושר: הקפאת היתר בנייה</span>
+              </div>
+              <div class="flex items-center gap-2 bg-white p-3 rounded-xl border border-slate-200">
+                <i data-lucide="x-circle" class="w-4 h-4 text-red-500 shrink-0"></i>
+                <span>עיכוב קבלני שלד ומימון בנקאי</span>
+              </div>
+              <div class="flex items-center gap-2 bg-white p-3 rounded-xl border border-slate-200">
+                <i data-lucide="check-circle" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>איתנו: פתרון הנדסי מהיר וירוק</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 bg-white rounded-2xl p-6 border border-slate-200 shadow-md text-center">
+            <div class="w-12 h-12 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto mb-3">
+              <i data-lucide="phone-forwarded" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-extrabold text-slate-900 text-lg mb-1">לא בטוחים מה דורשים מכם?</h3>
+            <p class="text-xs text-slate-500 mb-4">שלחו לנו את נסח הטאבו או מסמך תנאי ההיתר של הוועדה, ונחזיר חוות דעת ראשונית עוד היום.</p>
+            <a href="https://wa.me/972508912345?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9C%D7%95%D7%97%20%D7%9E%D7%A1%D7%9E%D7%9A%20%D7%93%D7%A8%D7%99%D7%A9%D7%95%D7%AA%20%D7%9E%D7%94%D7%95%D7%95%D7%A2%D7%93%D7%94%20%D7%9C%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%9E%D7%94%D7%99%D7%A8%D7%94" 
+               target="_blank" rel="noopener noreferrer"
+               class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow transition">
+              <i data-lucide="upload" class="w-4 h-4"></i>
+              <span>שליחת מסמכים בוואטסאפ לבדיקה</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. CORE SERVICES GRID ================= -->
+  <section id="services" class="py-20 bg-slate-50 relative scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-3">
+          <i data-lucide="wrench" class="w-3.5 h-3.5"></i>
+          מעטפת מקצועית מוסמכת
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-4">
+          השירותים שלנו בדרך להיתר
+        </h2>
+        <p class="text-base text-slate-600">
+          כל שירות מבוצע בהתאם מלא להנחיות המקצועיות של אגף שפכי תעשייה, דלקים וקרקעות מזוהמות במשרד להגנת הסביבה
+        </p>
+      </div>
+
+      <!-- Services Grid: 4 Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Card 1: סקר היסטורי Phase 1 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-card-hover hover:-translate-y-1 transition duration-300 relative group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 rounded-2xl bg-emerald-50 border border-emerald-200/80 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition duration-300 shadow-sm">
+                <i data-lucide="history" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+                Phase 1 • סקר שלב א׳
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 mb-3 group-hover:text-emerald-700 transition-colors">
+              סקר היסטורי (Phase 1)
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              איתור מוקדי זיהום פוטנציאליים וניתוח היסטוריית המגרש לשחרור מהיר מחשד לזיהום. הסקר כולל בדיקת תצלומי אוויר היסטוריים (תצ"א), סקירת ארכיוני היתרים, תיקי כיבוי אש, מפות הידרוגיאולוגיות ותיעוד רגולטורי ללא צורך בקידוחים יקרים במידת האפשר.
+            </p>
+
+            <ul class="space-y-2.5 mb-6 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>ניתוח תצלומי אוויר לאורך עשרות שנים</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>הערכת סיכונים סביבתיים מקיפה</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>הגשת דו"ח Phase 1 מאושר ישירות למשרד להגנ"ס</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded">לו"ז ממוצע: 7-14 ימי עסקים</span>
+            <a href="#quick-form" class="text-xs font-bold text-slate-900 hover:text-emerald-600 flex items-center gap-1 group-hover:translate-x-1 transition">
+              <span>הזמנת סקר היסטורי</span>
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 2: דיגום קרקע וגז קרקע Phase 2 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-card-hover hover:-translate-y-1 transition duration-300 relative group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200/80 text-amber-600 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition duration-300 shadow-sm">
+                <i data-lucide="test-tube-2" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+                Phase 2 • סקר שלב ב׳
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 mb-3 group-hover:text-amber-700 transition-colors">
+              דיגום קרקע וגז קרקע (Phase 2)
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              תכנון מוקפד וביצוע קידוחים ודיגומים בשטח על ידי דוגמים מוסמכים ומעבדות אנליטיות מוסמכות ISO 17025. אנו מכינים תוכנית דיגום מראש לאישור המשרד ומבצעים דיגומי TPH, מתכות כבדות, ממסים מוכלרים, וגז קרקע (Active & Passive).
+            </p>
+
+            <ul class="space-y-2.5 mb-6 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>הכנת תוכנית דיגום (Sampling Plan) לאישור המפקח</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>קידוחי קרקע וגז קרקע עם ציוד ייעודי תקני</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>אנליזות במעבדות מוסמכות ופיענוח תוצאות מקצועי</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-amber-700 bg-amber-50 px-2.5 py-1 rounded">דיגום מוסמך בתקן בינלאומי</span>
+            <a href="#quick-form" class="text-xs font-bold text-slate-900 hover:text-amber-600 flex items-center gap-1 group-hover:translate-x-1 transition">
+              <span>הזמנת דיגום שטח</span>
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 3: ליווי להיתרי בנייה וטופס 4 -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-card-hover hover:-translate-y-1 transition duration-300 relative group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 rounded-2xl bg-blue-50 border border-blue-200/80 text-blue-600 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition duration-300 shadow-sm">
+                <i data-lucide="file-badge" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+                רישוי ורגולציה
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">
+              ליווי להיתרי בנייה וטופס 4
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              התנהלות ישירה מול היחידות הסביבתיות, איגודי הערים והוועדות המקומיות והמחוזיות. אנו דואגים לסגירת כל התנאים הסביבתיים בהיתר, מייצגים את היזם מול המפקחים הסביבתיים, ומנפיקים אישורי סיום לצורך קבלת טופס 4 ללא עיכובים.
+            </p>
+
+            <ul class="space-y-2.5 mb-6 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>הסרת התניות סביבתיות בהיתרי חפירה ודיפון</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>אישור סופי לסגירת תיק סביבתי לקראת טופס 4</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>ייצוג ישיר בוועדות ודיונים רגולטוריים</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-blue-700 bg-blue-50 px-2.5 py-1 rounded">חיסכון של שבועות בבירוקרטיה</span>
+            <a href="#quick-form" class="text-xs font-bold text-slate-900 hover:text-blue-600 flex items-center gap-1 group-hover:translate-x-1 transition">
+              <span>ייעוץ מול הרגולטור</span>
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Card 4: שיקום קרקעות ופינוי לאתרים מורשים -->
+        <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm hover:shadow-card-hover hover:-translate-y-1 transition duration-300 relative group flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-14 h-14 rounded-2xl bg-teal-50 border border-teal-200/80 text-teal-600 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition duration-300 shadow-sm">
+                <i data-lucide="truck" class="w-7 h-7"></i>
+              </div>
+              <span class="text-xs font-extrabold uppercase tracking-wider text-slate-500 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+                שיקום ופתרונות קצה
+              </span>
+            </div>
+
+            <h3 class="text-2xl font-black text-slate-900 mb-3 group-hover:text-teal-700 transition-colors">
+              שיקום קרקעות ופינוי לאתרים מורשים
+            </h3>
+
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              פתרונות הנדסיים וכלכליים חכמים במקרה של גילוי זיהום בשטח. אנו מתכננים תוכנית חפירה ופינוי (Remediation Plan), מנהלים את תעודות המשלוח (מניפסטים) לאתרי קצה מורשים בישראל, ומנפיקים אישור NFA (No Further Action) לקרקע נקייה.
+            </p>
+
+            <ul class="space-y-2.5 mb-6 text-xs sm:text-sm text-slate-700">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>תכנון שיקום יעיל שממזער עלויות פינוי והטמנה</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>ליווי ופיקוח צמוד בזמן חפירת הקרקע המזוהמת</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600 shrink-0"></i>
+                <span>הנפקת אישור NFA רשמי מהמשרד להגנת הסביבה</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2.5 py-1 rounded">אישור NFA לשחרור המגרש</span>
+            <a href="#quick-form" class="text-xs font-bold text-slate-900 hover:text-teal-600 flex items-center gap-1 group-hover:translate-x-1 transition">
+              <span>ייעוץ שיקום קרקע</span>
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 5. THE FAST-TRACK PROCESS ================= -->
+  <section id="process" class="py-20 bg-white relative scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-xs font-bold mb-3">
+          <i data-lucide="route" class="w-3.5 h-3.5 text-emerald-600"></i>
+          שקיפות ומהירות ללא פשרות
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-4">
+          איך אנחנו חוסכים לכם זמן יקר?
+        </h2>
+        <p class="text-base text-slate-600">
+          תהליך מובנה ב-4 שלבים שנועד לקצר את דרככם להיתר הבנייה תוך עמידה מלאה בדרישות החוק
+        </p>
+      </div>
+
+      <!-- Process Steps (Desktop Horizontal, Mobile Vertical) -->
+      <div class="relative">
+        
+        <!-- Connecting Line for Desktop -->
+        <div class="hidden lg:block absolute top-1/2 left-8 right-8 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-slate-200 -translate-y-6 z-0"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          
+          <!-- Step 1 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition text-right relative group">
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-lg mb-5 shadow-md group-hover:bg-emerald-600 transition">
+              01
+            </div>
+            <div class="inline-block px-2.5 py-0.5 rounded text-[11px] font-bold bg-emerald-50 text-emerald-700 mb-2 border border-emerald-200">
+              תוך 24 שעות
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mb-2">שיחת אפיון ובדיקת דרישות</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              אנחנו עוברים על תיק הבניין, דרישות הוועדה המקומית והמשרד להגנת הסביבה, ומגדירים בדיוק מה נדרש – בלי בדיקות מיותרות שמייקרות את הפרויקט.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition text-right relative group">
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-lg mb-5 shadow-md group-hover:bg-emerald-600 transition">
+              02
+            </div>
+            <div class="inline-block px-2.5 py-0.5 rounded text-[11px] font-bold bg-blue-50 text-blue-700 mb-2 border border-blue-200">
+              עבודה ארכיונית ושטח
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mb-2">איסוף מידע וסקר היסטורי</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              סקירת תצ"א, סיור שטח של יועץ סביבתי, בדיקת תיקי רישוי עבר ואיתור נקודות חמות (Hotspots) לשלילת חשד לזיהום או הגדרת נקודות דיגום מדויקות.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition text-right relative group">
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-lg mb-5 shadow-md group-hover:bg-emerald-600 transition">
+              03
+            </div>
+            <div class="inline-block px-2.5 py-0.5 rounded text-[11px] font-bold bg-amber-50 text-amber-700 mb-2 border border-amber-200">
+              מעבדה מוסמכת
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mb-2">דיגומים ואנליזות שטח</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              במידה ונדרש: ביצוע קידוחים מדויקים על ידי דוגמים מוסמכים, לקיחת דוגמאות קרקע/גז, ושליחה לאנליזה מואצת במעבדות מוסמכות.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition text-right relative group">
+            <div class="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center font-black text-lg mb-5 shadow-md group-hover:bg-emerald-600 transition">
+              04
+            </div>
+            <div class="inline-block px-2.5 py-0.5 rounded text-[11px] font-bold bg-emerald-100 text-emerald-800 mb-2 border border-emerald-300">
+              היתר מאושר ביד
+            </div>
+            <h3 class="text-lg font-black text-slate-900 mb-2">דו"ח סופי ואישור להיתר</h3>
+            <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              עריכת דו"ח מקצועי ברמה הגבוהה ביותר, הגשתו למפקח המחוזי וליווי הדוק עד לחתימת שחרור התנאי וקבלת ההיתר הנכסף.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Action banner under process -->
+      <div class="mt-12 text-center">
+        <a href="#quick-form" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-6 py-3 rounded-xl border border-emerald-200 transition">
+          <i data-lucide="sparkles" class="w-4 h-4 text-emerald-600"></i>
+          <span>רוצים לבדוק איזה שלב נדרש עבור המגרש שלכם? לחצו כאן לבדיקה מהירה</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 6. INTERACTIVE SOIL COST ESTIMATOR (CRO SUPERCHARGER) ================= -->
+  <section id="calculator" class="py-16 bg-slate-900 text-white relative scroll-mt-20 overflow-hidden">
+    <!-- Ambient subtle background glow -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30 mb-3">
+          <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+          מחשבון הערכה אינטראקטיבי
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-white tracking-tight mb-2">
+          בדיקת צורך והערכת לו"ז לסקר הקרקע שלך
+        </h2>
+        <p class="text-sm text-slate-300">
+          בחרו את מאפייני הפרויקט וקבלו באופן מיידי הערכה לגבי היקף הסקר, לוחות הזמנים וההמלצה ההנדסית
+        </p>
+      </div>
+
+      <!-- Calculator Box -->
+      <div class="bg-slate-800/90 rounded-3xl border border-slate-700 p-6 sm:p-10 shadow-2xl backdrop-blur-md">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          
+          <!-- Select 1: Project Type -->
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-2">1. סוג הפרויקט התכנוני</label>
+            <select id="calcProjectType" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:ring-2 focus:ring-emerald-500 outline-none transition">
+              <option value="tama">התחדשות עירונית / תמ"א 38 / פינוי בינוי</option>
+              <option value="residential">בנייה רוויה חדשה (מגורים)</option>
+              <option value="commercial">מסחר, משרדים ולוגיסטיקה</option>
+              <option value="industrial">אזור תעשייה / מוסכים / תחנת דלק</option>
+              <option value="villa">בנייה פרטית צמודת קרקע</option>
+            </select>
+          </div>
+
+          <!-- Select 2: Lot Size -->
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-2">2. שטח המגרש המשוער</label>
+            <select id="calcLotSize" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:ring-2 focus:ring-emerald-500 outline-none transition">
+              <option value="small">עד 1 דונם (מגרש סטנדרטי)</option>
+              <option value="medium">1 עד 5 דונם</option>
+              <option value="large">מעל 5 דונם (מתחם גדול)</option>
+            </select>
+          </div>
+
+          <!-- Select 3: Current Status -->
+          <div>
+            <label class="block text-xs font-bold text-slate-300 mb-2">3. האם היה שימוש עבר חשוד?</label>
+            <select id="calcSuspicion" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-sm text-white focus:ring-2 focus:ring-emerald-500 outline-none transition">
+              <option value="no">לא ידוע / שימוש למגורים בלבד</option>
+              <option value="yes">כן (מפעל, מוסך, נגרייה, דלקים)</option>
+              <option value="unknown">דרישה ישירה של הוועדה ללא פירוט</option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- Real-time Dynamic Result Card -->
+        <div id="calcResultBox" class="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl border border-emerald-500/40 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="text-right w-full md:w-auto">
+            <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold mb-2">
+              <i data-lucide="sparkle" class="w-3.5 h-3.5"></i>
+              המלצה הנדסית ראשונית:
+            </div>
+            <h4 id="calcResultTitle" class="text-xl sm:text-2xl font-black text-white mb-2">
+              סקר היסטורי (Phase 1) מהיר
+            </h4>
+            <p id="calcResultDesc" class="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
+              ברוב המקרים של התחדשות עירונית, הגשת סקר היסטורי מעמיק ושלילת זיהום עשויה לפטור אתכם כליל מדיגומים יקרים ולקצר את הדרך להיתר!
+            </p>
+            <div class="flex items-center gap-4 mt-3 text-xs text-emerald-400 font-semibold">
+              <span id="calcTimeline" class="flex items-center gap-1">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+                לו"ז משוער: 7-10 ימי עסקים
+              </span>
+              <span class="flex items-center gap-1 text-slate-400">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                מענה ישיר למפקח
+              </span>
+            </div>
+          </div>
+
+          <div class="shrink-0 w-full md:w-auto">
+            <a href="https://wa.me/972508912345?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%A9%D7%AA%D7%9E%D7%A9%D7%AA%D7%99%20%D7%91%D7%9E%D7%97%D7%A9%D7%91%D7%95%D7%9F%20%D7%A9%D7%9C%D7%9B%D7%9D%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%94%D7%A6%D7%A2%D7%AA%20%D7%9E%D7%97%D7%99%D7%A8%20%D7%9E%D7%93%D7%95%D7%99%D7%A7%D7%AA%20%D7%9C%D7%A4%D7%A8%D7%95%D7%99%D7%A7%D7%98%20%D7%A9%D7%9C%D7%99" 
+               target="_blank" rel="noopener noreferrer"
+               class="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg hover:shadow-glow-emerald transition">
+              <i data-lucide="send" class="w-4 h-4"></i>
+              <span>קבלו הצעת מחיר סופית בוואטסאפ</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 7. WHY CHOOSE US ================= -->
+  <section id="why-us" class="py-20 bg-slate-50 relative scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold mb-3">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          היתרון התחרותי שלנו
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-4">
+          למה יזמים, אדריכלים ומנהלי פרויקטים בוחרים בנו?
+        </h2>
+        <p class="text-base text-slate-600">
+          בעולם הנדל"ן, זמן שווה הרבה מאוד כסף. הנה הסיבות שחברות הנדל"ן המובילות סומכות על אקו-קרקע
+        </p>
+      </div>
+
+      <!-- 3 Key Pillars -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        
+        <!-- Pillar 1 -->
+        <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-6">
+            <i data-lucide="user-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-black text-slate-900 mb-3">קשר ישיר עם מהנדס סביבתי בכיר</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            בלי מנהלי תיקים, בלי פקידים ובלי טלפון שבור. אתם מקבלים מהנדס סביבתי שמכיר אישית את התיק שלכם, זמין ישירות בנייד ובשטח, ומייצג אתכם במקצועיות ללא פשרות.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-6">
+            <i data-lucide="landmark" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-black text-slate-900 mb-3">שליטה עיוורת ברגולציה הישראלית</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            היכרות מעמיקה של דרישות המחוזות במשרד להגנת הסביבה (תל אביב, מרכז, ירושלים, צפון, דרום) והיחידות הסביבתיות. אנו יודעים בדיוק מה המפקח מחפש ויודעים לספק מענה מדויק.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6">
+            <i data-lucide="badge-dollar-sign" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-black text-slate-900 mb-3">שקיפות מחירים מלאה – ללא הפתעות</h3>
+          <p class="text-slate-600 text-sm leading-relaxed">
+            הצעת מחיר ברורה וסופית מהיום הראשון. אנחנו לא ממציאים קידוחים מיותרים, אלא פועלים לצמצום עלויות הדיגום והפינוי של הלקוח עד למינימום ההכרחי על פי חוק.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Comparison Table: אקו-קרקע מול חברות ייעוץ סטנדרטיות -->
+      <div class="bg-white rounded-3xl border border-slate-200 shadow-lg overflow-hidden">
+        <div class="p-6 sm:p-8 bg-slate-900 text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <h3 class="text-xl font-black">השוואת שירות: אקו-קרקע מול ייעוץ סטנדרטי</h3>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">איך הבחירה ביועץ הנכון משפיעה ישירות על לוחות הזמנים והתקציב שלכם</p>
+          </div>
+          <span class="text-xs font-bold bg-emerald-500/20 text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/30">
+            הבדל קריטי להיתר
+          </span>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-right text-sm">
+            <thead>
+              <tr class="border-b border-slate-200 bg-slate-50 text-slate-700 font-bold">
+                <th class="py-4 px-6">פרמטר</th>
+                <th class="py-4 px-6 text-emerald-700 bg-emerald-50/70">אקו-קרקע הנדסה</th>
+                <th class="py-4 px-6 text-slate-500">יועצים סטנדרטיים בשוק</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 text-slate-700">
+              <tr>
+                <td class="py-4 px-6 font-bold text-slate-900">זמן מענה והוצאת הצעה</td>
+                <td class="py-4 px-6 font-bold text-emerald-700 bg-emerald-50/40 flex items-center gap-1.5">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                  עד 24 שעות כולל בדיקת תיק
+                </td>
+                <td class="py-4 px-6 text-slate-500">3-7 ימי עסקים</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-slate-900">איש קשר וזמינות</td>
+                <td class="py-4 px-6 font-bold text-emerald-700 bg-emerald-50/40 flex items-center gap-1.5">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                  מהנדס סביבתי בכיר ישירות בנייד
+                </td>
+                <td class="py-4 px-6 text-slate-500">מוקד שירות לקוחות / מתמחה</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-slate-900">גישה הנדסית לחיסכון בעלויות</td>
+                <td class="py-4 px-6 font-bold text-emerald-700 bg-emerald-50/40 flex items-center gap-1.5">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                  שאיפה לשחרור מסקר Phase 2 במידת האפשר
+                </td>
+                <td class="py-4 px-6 text-slate-500">המלצה אוטומטית לקידוחים יקרים</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-slate-900">ליווי מול הוועדות עד החתימה</td>
+                <td class="py-4 px-6 font-bold text-emerald-700 bg-emerald-50/40 flex items-center gap-1.5">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                  מעקב אקטיבי מול המפקח עד אישור רשמי
+                </td>
+                <td class="py-4 px-6 text-slate-500">שליחת הדו"ח בלבד והשארת הטיפול ליזם</td>
+              </tr>
+              <tr>
+                <td class="py-4 px-6 font-bold text-slate-900">עבודה עם מעבדות</td>
+                <td class="py-4 px-6 font-bold text-emerald-700 bg-emerald-50/40 flex items-center gap-1.5">
+                  <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                  מעבדות מוכרות מוסמכות ISO 17025
+                </td>
+                <td class="py-4 px-6 text-slate-500">משתנה / ללא פיקוח הדוק</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 8. CLIENT PROFILES (WHO WE HELP) ================= -->
+  <section class="py-16 bg-white border-b border-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">פתרונות ייעודיים לפי סוג הלקוח</h3>
+        <p class="text-2xl sm:text-3xl font-black text-slate-900">
+          מותאם במדויק לצרכים של אנשי המקצוע בענף
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Profile 1 -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-emerald-300 transition shadow-2xs group">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="building-2" class="w-5 h-5"></i>
+          </div>
+          <h4 class="font-extrabold text-slate-900 text-lg mb-2">יזמי התחדשות עירונית</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            סגירת תנאים סביבתיים להיתרי הריסה ובנייה בלוחות זמנים צפופים תוך מניעת תביעות דיירים ועיכובים.
+          </p>
+        </div>
+
+        <!-- Profile 2 -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-emerald-300 transition shadow-2xs group">
+          <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="compass" class="w-5 h-5"></i>
+          </div>
+          <h4 class="font-extrabold text-slate-900 text-lg mb-2">אדריכלים ומתכננים</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            שילוב הדרישות הסביבתיות בתוכניות המוגשות ברישוי זמין, ללא הערות חוזרות מהבודקים הסביבתיים.
+          </p>
+        </div>
+
+        <!-- Profile 3 -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-emerald-300 transition shadow-2xs group">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="briefcase" class="w-5 h-5"></i>
+          </div>
+          <h4 class="font-extrabold text-slate-900 text-lg mb-2">מנהלי פרויקטים ומפקחים</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            ראש שקט בכל הקשור לקבלני קידוחים, תעודות משלוח עפר, תקני מעבדה ודוחות מוכנים לביקורת.
+          </p>
+        </div>
+
+        <!-- Profile 4 -->
+        <div class="p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-white hover:border-emerald-300 transition shadow-2xs group">
+          <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+            <i data-lucide="home" class="w-5 h-5"></i>
+          </div>
+          <h4 class="font-extrabold text-slate-900 text-lg mb-2">בונים פרטיים</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            ליווי אישי מובן וברור למגרשים פרטיים שנפלו תחת דרישת סקר קרקע עקב קרבה לאזור תעסוקה או חקלאות.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 9. FREQUENTLY ASKED QUESTIONS (FAQ) ================= -->
+  <section id="faq" class="py-20 bg-slate-50 relative scroll-mt-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-14">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-200/80 text-slate-800 text-xs font-bold mb-3">
+          <i data-lucide="help-circle" class="w-3.5 h-3.5 text-emerald-600"></i>
+          כל מה שחשוב לדעת
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-3">
+          שאלות נפוצות על סקרי קרקע והיתרים
+        </h2>
+        <p class="text-slate-600 text-sm">
+          תשובות מקצועיות לשאלות הנפוצות ביותר שאנו נשאלים על ידי יזמים ומנהלי תכנון
+        </p>
+      </div>
+
+      <!-- FAQ Accordion -->
+      <div class="space-y-4">
+        
+        <!-- FAQ 1 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs transition-all duration-200" open>
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-slate-900 hover:text-emerald-700 select-none">
+            <span class="text-base sm:text-lg flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-black shrink-0">1</span>
+              מתי נדרש לבצע סקר קרקע לפי החוק?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+          </summary>
+          <div class="px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+            סקר קרקע נדרש כאשר מגרש מיועד לשינוי ייעוד, הריסה ובנייה חדשה, או תוספת בנייה משמעותית, ונמצא באחד מהמקרים הבאים: היסטוריה של פעילות תעשייתית, תחנת דלק, מוסך, נגרייה, מילוי עפר ללא פיקוח, או סמיכות למקורות זיהום פוטנציאליים. הוועדה המקומית או המשרד להגנת הסביבה קובעים דרישה זו כתנאי סף לקבלת היתר חפירה ודיפון.
+          </div>
+        </details>
+
+        <!-- FAQ 2 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs transition-all duration-200">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-slate-900 hover:text-emerald-700 select-none">
+            <span class="text-base sm:text-lg flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-black shrink-0">2</span>
+              כמה זמן לוקח התהליך משלב הפנייה ועד קבלת האישור?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+          </summary>
+          <div class="px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+            סקר היסטורי (שלב 1) אורך בדרך כלל בין 7 ל-14 ימי עסקים מרגע קבלת כל החומרים. במידה והסקר ההיסטורי משחרר את האתר מחשד לזיהום – ניתן לקבל אישור רגולטורי מהיר. במידה ונדרש שלב דיגומים (שלב 2), התהליך כולל תוכנית דיגום, קידוחי שטח ובדיקות מעבדה, ואורך כ-3 עד 6 שבועות. אנו עושים מאמץ מירבי לקצר את הזמנים למינימום האפשרי.
+          </div>
+        </details>
+
+        <!-- FAQ 3 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs transition-all duration-200">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-slate-900 hover:text-emerald-700 select-none">
+            <span class="text-base sm:text-lg flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-black shrink-0">3</span>
+              מה ההבדל בין סקר היסטורי (שלב 1) לדיגום קרקע (שלב 2)?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+          </summary>
+          <div class="px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+            <strong>סקר היסטורי (Phase 1):</strong> איסוף נתונים ארכיוניים, תצלומי אוויר, היתרי בנייה ותיעוד שימושי עבר ללא פעולות פיזיות בקרקע. מטרתו לברר האם קיים חשד ממשי לזיהום.<br>
+            <strong>דיגום קרקע וגז (Phase 2):</strong> מתבצע רק כאשר הסקר ההיסטורי העלה חשד לזיהום. הוא כולל קידוחים פיזיים, נטילת דגימות קרקע וגז קרקע וביצוע אנליזות כימיות במעבדה מוסמכת.
+          </div>
+        </details>
+
+        <!-- FAQ 4 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs transition-all duration-200">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-slate-900 hover:text-emerald-700 select-none">
+            <span class="text-base sm:text-lg flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-black shrink-0">4</span>
+              האם אפשר לקבל היתר חפירה ודיפון לפני השלמת סקר הקרקע?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+          </summary>
+          <div class="px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+            ברוב המקרים לא. הוועדות המקומיות והמשרד להגנת הסביבה דורשים אישור סביבתי מקדמי לפני שמאפשרים חפירה באתר, מחשש שחפירה בלתי מבוקרת תפיץ זיהום או תפגע בעובדים ובתושבי הסביבה. עם זאת, בליווי מקצועי נכון, ניתן להגיש בקשה למתווה מואץ של פיקוח במהלך החפירה ולחסוך עיכובים.
+          </div>
+        </details>
+
+        <!-- FAQ 5 -->
+        <details class="group bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-2xs transition-all duration-200">
+          <summary class="flex items-center justify-between p-6 cursor-pointer font-bold text-slate-900 hover:text-emerald-700 select-none">
+            <span class="text-base sm:text-lg flex items-center gap-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-black shrink-0">5</span>
+              מה קורה אם מתגלה זיהום בקרקע?
+            </span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-200"></i>
+          </summary>
+          <div class="px-6 pb-6 pt-1 text-slate-600 text-sm leading-relaxed border-t border-slate-100">
+            אין סיבה להילחץ! אנו מכינים תוכנית חפירה ופינוי חכמה (Remediation Plan) המגדירה במדויק את הנפח המזוהם. כך מפנים רק את מה שחייבים לאתר מורשה, בלי לרוקן קרקע נקייה לחינם. בסיום מקבלים אישור שחרור רשמי (NFA) והפרויקט ממשיך כסדרו.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= 10. BOTTOM CONVERSION SECTION (FINAL CTA + CONTACT FORM) ================= -->
+  <section id="contact" class="py-20 bg-slate-900 text-white relative scroll-mt-20 overflow-hidden">
+    <!-- Decorative Glows -->
+    <div class="absolute -top-40 right-1/3 w-[500px] h-[500px] bg-emerald-600/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 -left-20 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Contact Info (Right column on RTL - 5 cols) -->
+        <div class="lg:col-span-5 text-right">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30 mb-4">
+            <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+            מענה ישיר ומקצועי
+          </div>
+          
+          <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight mb-4">
+            אל תתנו להיתר להמתין. 
+            <span class="text-emerald-400 block mt-1">בואו נניע את הפרויקט היום</span>
+          </h2>
+          
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+            צרו איתנו קשר לשיחת ייעוץ ראשונית ללא התחייבות. ננתח את דרישות הוועדה ונתאים לכם את מתווה העבודה המהיר והמשתלם ביותר.
+          </p>
+
+          <!-- Contact Details List -->
+          <div class="space-y-4 mb-8">
+            <a href="tel:0508912345" class="flex items-center gap-4 p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 hover:border-emerald-500 transition group">
+              <div class="w-11 h-11 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <i data-lucide="phone" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">טלפון ישיר למוקד ההנדסי:</span>
+                <span class="text-lg font-bold text-white tracking-wider font-mono" dir="ltr">050-891-2345</span>
+              </div>
+            </a>
+
+            <a href="https://wa.me/972508912345?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%A4%D7%95%D7%A0%D7%94%20%D7%9E%D7%94%D7%90%D7%AA%D7%A8%20%D7%9C%D7%92%D7%91%D7%99%20%D7%A1%D7%A7%D7%A8%20%D7%A7%D7%A8%D7%A7%D7%A2%20%D7%95%D7%94%D7%99%D7%AA%D7%A8%20%D7%91%D7%A0%D7%99%D7%99%D7%94" 
+               target="_blank" rel="noopener noreferrer"
+               class="flex items-center gap-4 p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 hover:border-emerald-500 transition group">
+              <div class="w-11 h-11 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">וואטסאפ לבירורים ושליחת תוכניות:</span>
+                <span class="text-base font-bold text-emerald-400">התחילו צ'אט מהיר בוואטסאפ</span>
+              </div>
+            </a>
+
+            <div class="flex items-center gap-4 p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80">
+              <div class="w-11 h-11 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                <i data-lucide="mail" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">דואר אלקטרוני לשליחת קבצים:</span>
+                <span class="text-sm font-bold text-white tracking-wide" dir="ltr">office@eco-soil.co.il</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80">
+              <div class="w-11 h-11 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                <i data-lucide="clock" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">שעות פעילות:</span>
+                <span class="text-sm font-semibold text-slate-200">א׳-ה׳: 08:00 - 19:00 | ימי ו׳: 08:30 - 13:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Contact Form (Left column on RTL - 7 cols) -->
+        <div class="lg:col-span-7">
+          <div class="bg-white rounded-3xl p-8 sm:p-10 text-slate-800 shadow-2xl border border-slate-200 relative">
+            <h3 class="text-2xl font-black text-slate-900 mb-2">קבלת הצעת מחיר מותאמת לפרויקט</h3>
+            <p class="text-xs sm:text-sm text-slate-500 mb-6">מלאו את פרטי המגרש ונחזור אליכם עם מתווה עבודה ולוחות זמנים מדויקים</p>
+
+            <form id="bottomContactForm" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="bottomName" class="block text-xs font-bold text-slate-700 mb-1">שם מלא *</label>
+                  <input type="text" id="bottomName" name="name" required placeholder="ישראל ישראלי" 
+                         class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
+                </div>
+
+                <div>
+                  <label for="bottomPhone" class="block text-xs font-bold text-slate-700 mb-1">טלפון נייד *</label>
+                  <input type="tel" id="bottomPhone" name="phone" required dir="ltr" placeholder="050-0000000" 
+                         class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition text-right">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="bottomEmail" class="block text-xs font-bold text-slate-700 mb-1">דואר אלקטרוני (אופציונלי לקבלת הצעה)</label>
+                  <input type="email" id="bottomEmail" name="email" dir="ltr" placeholder="name@company.co.il" 
+                         class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition text-right">
+                </div>
+
+                <div>
+                  <label for="bottomProjectRole" class="block text-xs font-bold text-slate-700 mb-1">תפקיד בפרויקט</label>
+                  <select id="bottomProjectRole" name="role" class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-800 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition bg-white">
+                    <option value="יזם / חברת נדלן">יזם / חברת נדל"ן</option>
+                    <option value="אדריכל / מתכנן">אדריכל / מתכנן</option>
+                    <option value="מנהל פרויקט / מפקח">מנהל פרויקט / מפקח</option>
+                    <option value="עורך דין / נאמן">עורך דין / מייצג דיירים</option>
+                    <option value="בעל קרקע פרטי">בעל קרקע פרטי</option>
+                    <option value="אחר">אחר</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="bottomCity" class="block text-xs font-bold text-slate-700 mb-1">מיקום המגרש (עיר / יישוב) *</label>
+                  <input type="text" id="bottomCity" name="city" required placeholder="לדוגמה: ראשון לציון" 
+                         class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
+                </div>
+
+                <div>
+                  <label for="bottomParcel" class="block text-xs font-bold text-slate-700 mb-1">גוש וחלקה (אם ידוע)</label>
+                  <input type="text" id="bottomParcel" name="parcel" placeholder="גוש: 6543 חלקה: 21" 
+                         class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition">
+                </div>
+              </div>
+
+              <div>
+                <label for="bottomNotes" class="block text-xs font-bold text-slate-700 mb-1">פרטים נוספים או דרישות ספציפיות של הוועדה</label>
+                <textarea id="bottomNotes" name="notes" rows="3" placeholder="פרטו בקצרה: האם יש דרישה לסקר היסטורי בלבד? האם קיבלתם מכתב מהמשרד להגנת הסביבה?" 
+                          class="w-full px-4 py-3 rounded-xl border border-slate-300 text-slate-900 text-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition"></textarea>
+              </div>
+
+              <button type="submit" id="bottomSubmitBtn" 
+                      class="w-full py-4 px-6 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-base shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center gap-2 group">
+                <span id="bottomBtnText">שליחת בקשה להצעת מחיר מהירה</span>
+                <i data-lucide="arrow-left" class="w-5 h-5 text-emerald-400 group-hover:translate-x-1 transition-transform"></i>
+              </button>
+
+              <div id="bottomSuccessAlert" class="hidden p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-900 text-sm">
+                <div class="flex items-center gap-2 font-bold mb-1">
+                  <i data-lucide="check-circle" class="w-5 h-5 text-emerald-600"></i>
+                  <span>בקשתכם התקבלה בהצלחה!</span>
+                </div>
+                <p>המהנדס האחראי על אזורכם כבר בודק את פרטי המגרש וייצור עמכם קשר בהקדם.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 11. FOOTER ================= -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <!-- Col 1: About -->
+        <div class="md:col-span-2">
+          <div class="flex items-center gap-2 text-white font-black text-lg mb-3">
+            <div class="w-7 h-7 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+            </div>
+            <span>אקו-קרקע | הנדסה סביבתית וסקרי קרקע</span>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-md mb-4">
+            חברת ייעוץ הנדסית מובילה בישראל המתמחה בביצוע סקרי קרקע היסטוריים (Phase 1), תוכניות דיגום, קידוחי קרקע וגז קרקע (Phase 2), וליווי יזמים להיתרי בנייה וטופס 4 מול המשרד להגנת הסביבה והוועדות המקומיות.
+          </p>
+          <div class="flex items-center gap-3 text-slate-400 text-[11px]">
+            <span>רישיון מוסמך</span>
+            <span>•</span>
+            <span>מעבדות תקן ISO 17025</span>
+            <span>•</span>
+            <span>פריסה ארצית</span>
+          </div>
+        </div>
+
+        <!-- Col 2: Quick Links -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">ניווט מהיר</h4>
+          <ul class="space-y-2">
+            <li><a href="#services" class="hover:text-emerald-400 transition">השירותים שלנו</a></li>
+            <li><a href="#process" class="hover:text-emerald-400 transition">תהליך העבודה להיתר</a></li>
+            <li><a href="#calculator" class="hover:text-emerald-400 transition">מחשבון עלויות ולו"ז</a></li>
+            <li><a href="#why-us" class="hover:text-emerald-400 transition">למה לבחור בנו?</a></li>
+            <li><a href="#faq" class="hover:text-emerald-400 transition">שאלות ותשובות נפוצות</a></li>
+            <li><a href="#contact" class="hover:text-emerald-400 transition">יצירת קשר והצעת מחיר</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Legal & Regulatory -->
+        <div>
+          <h4 class="text-white font-bold text-sm mb-3">רגולציה ותקינה</h4>
+          <ul class="space-y-2 text-[11px] text-slate-400">
+            <li>הנחיות המשרד להגנת הסביבה לסקרי קרקע</li>
+            <li>תקנות התכנון והבנייה (תנאים סביבתיים להיתר)</li>
+            <li>נוהל בדיקת גז קרקע אקטיבי ופסיבי TO-15</li>
+            <li>אישורי פינוי לאתרי קצה מורשים</li>
+            <li>טופס 4 וסגירת תיק סביבתי</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-slate-400">
+        <p>© 2026 אקו-קרקע ייעוץ הנדסי בע"מ. כל הזכויות שמורות.</p>
+        <p class="text-slate-400">המידע באתר נועד למתן מענה ראשוני ואינו מהווה תחליף לחוות דעת מקצועית פרטנית למגרש.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= 12. FLOATING CRO ACTION BUTTONS ================= -->
+  <!-- Bottom-left floating buttons for immediate conversion -->
+  <div class="fixed bottom-6 left-6 z-50 flex flex-col gap-3">
+    
+    <!-- Floating WhatsApp Button (Green with pulsing effect) -->
+    <a href="https://wa.me/972508912345?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%9C%D7%92%D7%91%D7%99%20%D7%A1%D7%A7%D7%A8%20%D7%A7%D7%A8%D7%A7%D7%A2%20%D7%9C%D7%94%D7%99%D7%AA%D7%A8%20%D7%91%D7%A0%D7%99%D7%99%D7%94" 
+       target="_blank" rel="noopener noreferrer"
+       aria-label="שיחה ישירה בוואטסאפ"
+       class="relative group w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white flex items-center justify-center shadow-xl transition-all duration-300 transform hover:scale-110 pulse-ring">
+      <i data-lucide="message-circle" class="w-7 h-7"></i>
+      <!-- Tooltip on Hover -->
+      <span class="absolute left-16 px-3 py-1.5 rounded-lg bg-slate-900 text-white text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none shadow-md hidden sm:block">
+        ייעוץ ישיר בוואטסאפ
+      </span>
+    </a>
+
+    <!-- Floating Phone Call Button (Mobile High-Priority) -->
+    <a href="tel:0508912345" 
+       aria-label="חייגו למוקד ההנדסי"
+       class="w-14 h-14 rounded-full bg-slate-900 hover:bg-slate-800 text-white flex items-center justify-center shadow-lg transition-all duration-300 transform hover:scale-105 border border-slate-700 md:hidden">
+      <i data-lucide="phone" class="w-6 h-6 text-emerald-400"></i>
+    </a>
+
+  </div>
+
+  <!-- ================= 13. INTERACTIVE SUCCESS MODAL ================= -->
+  <div id="leadModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-3xl max-w-md w-full p-6 sm:p-8 text-center shadow-2xl border border-slate-100 transform scale-95 transition-transform duration-300" id="modalCard">
+      <div class="w-16 h-16 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="check-circle-2" class="w-10 h-10"></i>
+      </div>
+      <h3 class="text-2xl font-black text-slate-900 mb-2">פנייתך התקבלה בהצלחה!</h3>
+      <p class="text-slate-600 text-sm leading-relaxed mb-6">
+        תודה שפנית ל<strong>אקו-קרקע</strong>. המהנדס הסביבתי של אזורכם קיבל את פרטי המגרש ויחזור אליכם לשיחת אפיון תוך זמן קצר.
+      </p>
+      
+      <div class="space-y-3">
+        <a href="https://wa.me/972508912345?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A7%D7%95-%D7%A7%D7%A8%D7%A7%D7%A2%2C%20%D7%94%D7%A9%D7%90%D7%A8%D7%AA%D7%99%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%9E%D7%A2%D7%A0%D7%94%20%D7%9E%D7%94%D7%99%D7%A8%20%D7%91%D7%95%D7%95%D7%90%D7%98%D7%A1%D7%90%D7%A4" 
+           target="_blank" rel="noopener noreferrer"
+           class="w-full inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow transition">
+          <i data-lucide="message-circle" class="w-4 h-4"></i>
+          <span>המשך שיחה מיידית בוואטסאפ</span>
+        </a>
+        
+        <button type="button" id="closeModalBtn" 
+                class="w-full py-2.5 px-4 rounded-xl border border-slate-300 text-slate-700 font-semibold text-sm hover:bg-slate-50 transition">
+          סגור חלון זה
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      mobileNavLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+
+    // Modal Handler
+    const modal = document.getElementById('leadModal');
+    const modalCard = document.getElementById('modalCard');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    function openModal() {
+      if (!modal) return;
+      modal.classList.remove('hidden');
+      setTimeout(() => {
+        modal.classList.remove('opacity-0');
+        modalCard.classList.remove('scale-95');
+        modalCard.classList.add('scale-100');
+      }, 10);
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      if (!modal) return;
+      modal.classList.add('opacity-0');
+      modalCard.classList.remove('scale-100');
+      modalCard.classList.add('scale-95');
+      setTimeout(() => {
+        modal.classList.add('hidden');
+      }, 300);
+    }
+
+    if (closeModalBtn) {
+      closeModalBtn.addEventListener('click', closeModal);
+    }
+    if (modal) {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+    }
+
+    // Fast Hero Form Submission Simulation
+    const heroLeadForm = document.getElementById('heroLeadForm');
+    const heroSubmitBtn = document.getElementById('heroSubmitBtn');
+    const heroBtnText = document.getElementById('heroBtnText');
+    const heroSuccessAlert = document.getElementById('heroSuccessAlert');
+
+    if (heroLeadForm) {
+      heroLeadForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Button loading state
+        heroSubmitBtn.disabled = true;
+        heroBtnText.textContent = 'שולח פרטים...';
+
+        setTimeout(() => {
+          heroSubmitBtn.disabled = false;
+          heroBtnText.textContent = 'שלחו פרטים ונחזור אליכם בהקדם';
+          heroLeadForm.reset();
+          if (heroSuccessAlert) heroSuccessAlert.classList.remove('hidden');
+          openModal();
+        }, 800);
+      });
+    }
+
+    // Bottom Contact Form Submission Simulation
+    const bottomContactForm = document.getElementById('bottomContactForm');
+    const bottomSubmitBtn = document.getElementById('bottomSubmitBtn');
+    const bottomBtnText = document.getElementById('bottomBtnText');
+    const bottomSuccessAlert = document.getElementById('bottomSuccessAlert');
+
+    if (bottomContactForm) {
+      bottomContactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        bottomSubmitBtn.disabled = true;
+        bottomBtnText.textContent = 'מעבד פנייה...';
+
+        setTimeout(() => {
+          bottomSubmitBtn.disabled = false;
+          bottomBtnText.textContent = 'שליחת בקשה להצעת מחיר מהירה';
+          bottomContactForm.reset();
+          if (bottomSuccessAlert) bottomSuccessAlert.classList.remove('hidden');
+          openModal();
+        }, 800);
+      });
+    }
+
+    // Interactive Cost & Timeline Calculator logic
+    const calcProjectType = document.getElementById('calcProjectType');
+    const calcLotSize = document.getElementById('calcLotSize');
+    const calcSuspicion = document.getElementById('calcSuspicion');
+
+    const calcResultTitle = document.getElementById('calcResultTitle');
+    const calcResultDesc = document.getElementById('calcResultDesc');
+    const calcTimeline = document.getElementById('calcTimeline');
+
+    function updateCalculator() {
+      const type = calcProjectType.value;
+      const size = calcLotSize.value;
+      const susp = calcSuspicion.value;
+
+      if (susp === 'yes' || type === 'industrial') {
+        calcResultTitle.textContent = 'סקר היסטורי מקיף + תוכנית דיגום (Phase 1 & 2)';
+        calcResultDesc.textContent = 'עקב פעילות עבר בעלת פוטנציאל זיהום, המשרד להגנת הסביבה ידרוש ככל הנראה דיגום קרקע וגז קרקע. אנו נתכנן תוכנית דיגום חכמה שתתמקד אך ורק במוקדים החשודים כדי למנוע הוצאות מיותרות.';
+        calcTimeline.innerHTML = '<i data-lucide="clock" class="w-4 h-4"></i> לו"ז משוער: 3-5 שבועות (כולל מעבדה)';
+      } else if (type === 'villa') {
+        calcResultTitle.textContent = 'שחרור מחשד סביבתי / סקר מקוצר לבנייה פרטית';
+        calcResultDesc.textContent = 'במגרשים צמודי קרקע הדרישה לרוב נובעת מהגדרה אזורית רחבה. במרבית המקרים ניתן לסגור את התנאי באמצעות סקר היסטורי מקוצר או חוות דעת יועץ סביבתי ללא צורך בקידוחים יקרים!';
+        calcTimeline.innerHTML = '<i data-lucide="clock" class="w-4 h-4"></i> לו"ז משוער: 5-7 ימי עסקים בלבד';
+      } else {
+        calcResultTitle.textContent = 'סקר היסטורי (Phase 1) מהיר לשחרור המגרש';
+        calcResultDesc.textContent = 'ברוב הפרויקטים של פינוי בינוי ותמ"א 38, סקר היסטורי מקצועי וממצה המציג היעדר פעילות מזהמת בעבר מספיק לשחרור המגרש מדרישות נוספות וקבלת אישור להיתר.';
+        calcTimeline.innerHTML = '<i data-lucide="clock" class="w-4 h-4"></i> לו"ז משוער: 7-10 ימי עסקים';
+      }
+      lucide.createIcons();
+    }
+
+    if (calcProjectType && calcLotSize && calcSuspicion) {
+      calcProjectType.addEventListener('change', updateCalculator);
+      calcLotSize.addEventListener('change', updateCalculator);
+      calcSuspicion.addEventListener('change', updateCalculator);
+    }
+  </script>
 </body>
 </html>
